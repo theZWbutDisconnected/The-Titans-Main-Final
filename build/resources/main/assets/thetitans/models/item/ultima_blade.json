@@ -1,0 +1,139 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"textures": {
+		"0": "thetitans:entities/ultima_blade"
+	},
+	"elements": [
+		{
+			"name": "Handle",
+			"from": [7, -16, 7],
+			"to": [9, -4, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -16, 8]},
+			"faces": {
+				"north": {"uv": [1, 1, 2, 7], "texture": "#0"},
+				"east": {"uv": [0, 1, 1, 7], "texture": "#0"},
+				"south": {"uv": [3, 1, 4, 7], "texture": "#0"},
+				"west": {"uv": [2, 1, 3, 7], "texture": "#0"},
+				"up": {"uv": [2, 1, 1, 0], "texture": "#0"},
+				"down": {"uv": [3, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Guard",
+			"from": [5.5, -4, 5.5],
+			"to": [10.5, -3.5, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -4, 8]},
+			"faces": {
+				"north": {"uv": [8.5, 2.5, 11, 2.75], "texture": "#0"},
+				"east": {"uv": [6, 2.5, 8.5, 2.75], "texture": "#0"},
+				"south": {"uv": [13.5, 2.5, 16, 2.75], "texture": "#0"},
+				"west": {"uv": [11, 2.5, 13.5, 2.75], "texture": "#0"},
+				"up": {"uv": [11, 2.5, 8.5, 0], "texture": "#0"},
+				"down": {"uv": [13.5, 0, 11, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BladeLower",
+			"from": [8, -4, 7],
+			"to": [8, 14, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -4, 8]},
+			"faces": {
+				"north": {"uv": [1, 7, 1, 16], "texture": "#0"},
+				"east": {"uv": [0, 7, 1, 16], "texture": "#0"},
+				"south": {"uv": [2, 7, 2, 16], "texture": "#0"},
+				"west": {"uv": [1, 7, 2, 16], "texture": "#0"},
+				"up": {"uv": [1, 7, 1, 6], "texture": "#0"},
+				"down": {"uv": [1, 6, 1, 7], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BladeTip",
+			"from": [8, 14, 7],
+			"to": [8, 32, 9],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 14, 8]},
+			"faces": {
+				"north": {"uv": [3, 7, 3, 16], "texture": "#0"},
+				"east": {"uv": [2, 7, 3, 16], "texture": "#0"},
+				"south": {"uv": [4, 7, 4, 16], "texture": "#0"},
+				"west": {"uv": [3, 7, 4, 16], "texture": "#0"},
+				"up": {"uv": [3, 7, 3, 6], "texture": "#0"},
+				"down": {"uv": [3, 6, 3, 7], "texture": "#0"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [26.5, 0, 0],
+			"translation": [0, 78, 39.5],
+			"scale": [4, 4, 4]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [26.5, 0, 0],
+			"translation": [0, 78, 39.5],
+			"scale": [4, 4, 4]
+		},
+		"firstperson_righthand": {
+			"rotation": [-45.32, 29.86, -22.61],
+			"translation": [36.5, 39, -64.5],
+			"scale": [4, 4, 4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-45.32, 29.86, -22.61],
+			"translation": [36.5, 39, -64.5],
+			"scale": [4, 4, 4]
+		},
+		"ground": {
+			"translation": [0, 80, 0],
+			"scale": [4, 4, 4]
+		},
+		"gui": {
+			"rotation": [90, 61, -90],
+			"translation": [28.25, 49.65, 0],
+			"scale": [2.6, 2.6, 2.6]
+		},
+		"head": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 62.75, -65.5],
+			"scale": [4, 4, 4]
+		},
+		"fixed": {
+			"rotation": [90, -65, 90],
+			"translation": [-37.75, 80, -2],
+			"scale": [4, 4, 4]
+		}
+	},
+	"groups": [
+		{
+			"name": "Handle",
+			"origin": [8, -16, 8],
+			"color": 0,
+			"children": [
+				0,
+				{
+					"name": "Guard",
+					"origin": [8, -4, 8],
+					"color": 0,
+					"children": [
+						1,
+						{
+							"name": "BladeLower",
+							"origin": [8, -4, 8],
+							"color": 0,
+							"children": [
+								2,
+								{
+									"name": "BladeTip",
+									"origin": [8, 8, 8],
+									"color": 0,
+									"children": [3]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,137 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"textures": {
+		"0": "thetitans:entities/optima_axe"
+	},
+	"elements": [
+		{
+			"name": "Grip",
+			"from": [6, -16, 6],
+			"to": [10, -4, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -16, 8]},
+			"faces": {
+				"north": {"uv": [2, 2, 4, 8], "texture": "#0"},
+				"east": {"uv": [0, 2, 2, 8], "texture": "#0"},
+				"south": {"uv": [6, 2, 8, 8], "texture": "#0"},
+				"west": {"uv": [4, 2, 6, 8], "texture": "#0"},
+				"up": {"uv": [4, 2, 2, 0], "texture": "#0"},
+				"down": {"uv": [6, 0, 4, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Handle",
+			"from": [7, -4, 7],
+			"to": [9, 25, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -16, 8]},
+			"faces": {
+				"north": {"uv": [13, 1, 14, 16], "texture": "#0"},
+				"east": {"uv": [12, 1, 13, 16], "texture": "#0"},
+				"south": {"uv": [15, 1, 16, 16], "texture": "#0"},
+				"west": {"uv": [14, 1, 15, 16], "texture": "#0"},
+				"up": {"uv": [14, 1, 13, 0], "texture": "#0"},
+				"down": {"uv": [15, 0, 14, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Blade2",
+			"from": [8, 16, 9],
+			"to": [8, 32, 21],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -16, 8]},
+			"faces": {
+				"north": {"uv": [6, 8, 6, 16], "texture": "#0"},
+				"east": {"uv": [12, 8, 6, 16], "texture": "#0"},
+				"south": {"uv": [12, 8, 12, 16], "texture": "#0"},
+				"west": {"uv": [6, 8, 0, 16], "texture": "#0"},
+				"up": {"uv": [6, 8, 6, 2], "texture": "#0"},
+				"down": {"uv": [6, 2, 6, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Blade1",
+			"from": [8, 16, -5],
+			"to": [8, 32, 7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -16, 8]},
+			"faces": {
+				"north": {"uv": [12, 8, 12, 16], "texture": "#0"},
+				"east": {"uv": [6, 8, 12, 16], "texture": "#0"},
+				"south": {"uv": [6, 8, 6, 16], "texture": "#0"},
+				"west": {"uv": [0, 8, 6, 16], "texture": "#0"},
+				"up": {"uv": [6, 8, 6, 2], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [6, 2, 6, 8], "rotation": 180, "texture": "#0"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [26.5, 0, 0],
+			"translation": [0, 78, 39.5],
+			"scale": [4, 4, 4]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [26.5, 0, 0],
+			"translation": [0, 78, 39.5],
+			"scale": [4, 4, 4]
+		},
+		"firstperson_righthand": {
+			"rotation": [-45.32, 29.86, -22.61],
+			"translation": [36.5, 39, -64.5],
+			"scale": [4, 4, 4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-45.32, 29.86, -22.61],
+			"translation": [36.5, 39, -64.5],
+			"scale": [4, 4, 4]
+		},
+		"ground": {
+			"translation": [0, 80, 0],
+			"scale": [4, 4, 4]
+		},
+		"gui": {
+			"rotation": [90, 61, -90],
+			"translation": [28.25, 49.65, 0],
+			"scale": [2.6, 2.6, 2.6]
+		},
+		"head": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 62.75, -65.5],
+			"scale": [4, 4, 4]
+		},
+		"fixed": {
+			"rotation": [90, -65, 90],
+			"translation": [-37.75, 80, -2],
+			"scale": [4, 4, 4]
+		}
+	},
+	"groups": [
+		{
+			"name": "Grip",
+			"origin": [8, -16, 8],
+			"color": 0,
+			"children": [
+				0,
+				{
+					"name": "Handle",
+					"origin": [8, -4, 8],
+					"color": 0,
+					"children": [
+						1,
+						{
+							"name": "Blade2",
+							"origin": [8, 25, 8],
+							"color": 0,
+							"children": [2]
+						},
+						{
+							"name": "Blade1",
+							"origin": [8, 25, 8],
+							"color": 0,
+							"children": [3]
+						}
+					]
+				}
+			]
+		}
+	]
+}

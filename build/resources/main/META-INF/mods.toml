@@ -1,0 +1,29 @@
+modLoader="javafml" #mandatory
+loaderVersion="[36.0.0,37.0.0)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+license="All Rights Reserved"
+[[mods]] #mandatory
+  modId="thetitans" #mandatory
+  version="0.495" #mandatory
+  displayName="The Titans Mod" #mandatory
+  updateJSONURL="" #optional
+  displayURL="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2583152" #optional
+  logoFile="thetitanslogo_mob_battles.png" #optional
+  credits="Created by Enderman_of_D00M. Ported by ZerWhit. Boss bars drawn by Xwan. Wither Turret suggested by TheMCO." #optional
+  authors="Enderman_of_D00M" #optional
+  description='''A mod that adds 19 gigantic Titan mob bosses to your world, along with a slew of other things.'''
+[[dependencies.thetitans]] #optional
+   modId="forge" #mandatory
+   mandatory=true #mandatory
+   versionRange="[36.0.0,37.0.0)" #mandatory
+   ordering="NONE"
+   side="BOTH"# Here's another dependency
+[[dependencies.thetitans]]
+   modId="minecraft"
+   mandatory=true
+   versionRange="[1.16.5]"
+   ordering="NONE"
+   side="BOTH"
+[[mods]] #mandatory
+  modId="titansanimationapi" #mandatory
+  version="1.2.4" #mandatory
+  displayName="Titans Animation API" #mandatory

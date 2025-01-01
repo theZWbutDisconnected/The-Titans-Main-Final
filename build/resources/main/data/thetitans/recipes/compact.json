@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bedrock",
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bedrock"
+    }
+  },
+  "result": {
+    "item": "thetitans:bedrock_compact"
+  }
+}

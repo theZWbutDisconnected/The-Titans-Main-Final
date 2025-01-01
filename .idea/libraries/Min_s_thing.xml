@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Min's thing">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mods/Min's thing.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

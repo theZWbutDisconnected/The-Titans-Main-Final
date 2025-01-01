@@ -1,0 +1,6 @@
+{
+  "parent": "thetitans:item/spawn_egg_titan",
+  "textures": {
+    "0": "thetitans:entities/eggs/skeleton_titan_egg"
+  }
+}

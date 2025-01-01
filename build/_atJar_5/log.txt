@@ -1,0 +1,7 @@
+Java Launcher: C:\Program Files\Java\jdk-16.0.1\bin\java.exe
+Arguments: '--inJar, F:\MC Mod Workspace\1.16.5\The-Titans-Main-Final\build\fg_cache\net\minecraftforge\forge\1.16.5-36.2.39\forge-1.16.5-36.2.39-injected.jar, --outJar, F:\MC Mod Workspace\1.16.5\The-Titans-Main-Final\build\fg_cache\net\minecraftforge\forge\1.16.5-36.2.39_mapped_official_1.16.5\forge-1.16.5-36.2.39_mapped_official_1.16.5.jar, --logFile, accesstransform.log, --atFile, F:\MC Mod Workspace\1.16.5\The-Titans-Main-Final\src\main\resources\META-INF\accesstransformer.cfg, --atFile, F:\MC Mod Workspace\1.16.5\The-Titans-Main-Final\build\_atJar_5\parent_at.cfg'
+Classpath:
+ - F:\MC Mod Workspace\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.0.7\accesstransformers-8.0.7-fatjar.jar
+Working directory: F:\MC Mod Workspace\1.16.5\The-Titans-Main-Final\build\_atJar_5
+Main class: net.minecraftforge.accesstransformer.TransformerProcessor
+====================================

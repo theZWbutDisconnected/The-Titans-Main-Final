@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "harcadium",
+  "pattern": [
+    "H H",
+    "H H"
+  ],
+  "key": {
+    "H": {
+      "item": "thetitans:harcadium"
+    }
+  },
+  "result": {
+    "item": "thetitans:harcadium_boots"
+  }
+}

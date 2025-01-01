@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bedrock",
+  "pattern": [
+    "CHC",
+    "C C",
+    "C C"
+  ],
+  "key": {
+    "C": {
+      "item": "thetitans:bedrock_compact"
+    },
+    "H": {
+      "item": "thetitans:harcadium_block"
+    }
+  },
+  "result": {
+    "item": "thetitans:adminium_leggings"
+  }
+}

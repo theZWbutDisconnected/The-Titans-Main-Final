@@ -1,0 +1,5 @@
+com/zerwhit/mixin/block/MixinBipedModel rightArm field_178723_h
+com/zerwhit/mixin/block/MixinBipedModel leftArm field_178724_i
+com/zerwhit/mixin/block/MixinBipedModel rightArmPose field_187076_m
+com/zerwhit/mixin/block/MixinBipedModel leftArmPose field_187075_l
+com/zerwhit/mixin/block/MixinUseAction $VALUES $VALUES

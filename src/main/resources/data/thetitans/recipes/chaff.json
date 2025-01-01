@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PWP",
+    "WPW",
+    "PWP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "result": {
+    "item": "thetitans:chaff"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "void",
+  "pattern": [
+    "HHH",
+    " D ",
+    " D "
+  ],
+  "key": {
+    "H": {
+      "item": "thetitans:void"
+    },
+    "D": {
+      "item": "thetitans:harcadium"
+    }
+  },
+  "result": {
+    "item": "thetitans:void_pickaxe"
+  }
+}

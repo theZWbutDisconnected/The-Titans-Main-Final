@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.zerwhit.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "thetitans.refmap.json",
+  "mixins": [
+    "block.MixinUseAction",
+    "block.MixinBipedModel",
+    "block.MixinPlayerRenderer"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

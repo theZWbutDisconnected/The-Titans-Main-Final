@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: The-Titans-Main-Final
+MixinConfigs: thetitans.mixins.json
+Implementation-Version: 0.495
+Specification-Vendor: thetitanssareus
+FMLAT: accesstransformer.cfg
+Specification-Title: thetitans
+Implementation-Timestamp: 2025-01-01T19:55:41+0800
+Specification-Version: 1
+Implementation-Vendor: examplemodsareus
+

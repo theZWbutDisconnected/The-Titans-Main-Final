@@ -1,0 +1,25 @@
+{
+  "parent": "thetitans:recipes/root",
+  "rewards": {
+    "recipes": [
+      "thetitans:harcadium"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thetitans:harcadium"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "thetitans:block/malgrum_stage0"
+    },
+    "age=1": {
+      "model": "thetitans:block/malgrum_stage1"
+    },
+    "age=2": {
+      "model": "thetitans:block/malgrum_stage2"
+    },
+    "age=3": {
+      "model": "thetitans:block/malgrum_stage3"
+    },
+    "age=4": {
+      "model": "thetitans:block/malgrum_stage4"
+    },
+    "age=5": {
+      "model": "thetitans:block/malgrum_stage5"
+    },
+    "age=6": {
+      "model": "thetitans:block/malgrum_stage6"
+    },
+    "age=7": {
+      "model": "thetitans:block/malgrum_stage7"
+    }
+  }
+}

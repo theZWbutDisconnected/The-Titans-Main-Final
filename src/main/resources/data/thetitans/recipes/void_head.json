@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "void",
+  "pattern": [
+    "HHH",
+    "H H"
+  ],
+  "key": {
+    "H": {
+      "item": "thetitans:void"
+    }
+  },
+  "result": {
+    "item": "thetitans:void_helmet"
+  }
+}

@@ -1,0 +1,31 @@
+
+#Common settings
+[general]
+	#Set Zombie Titan Minion Spawnrate
+	#Range: 1 ~ 10
+	ZombieTitanMinionSpawnrate = 5
+	#Set Wither Skeleton Titan Minion Spawnrate
+	#Range: 1 ~ 10
+	WitherSkeletonTitanMinionSpawnrate = 5
+	#Set Slime Titan Minion Spawnrate
+	#Range: 1 ~ 10
+	SlimeTitanMinionSpawnrate = 5
+	#Enable Free For All Mode
+	TitansFFAMode = false
+	#Enable Total Destruction Mode
+	TotalDestructionMode = false
+	#Set Ultima Iron Golem Titan Minion Spawnrate
+	#Range: 1 ~ 10
+	UltimaIronGolemTitanMinionSpawnrate = 5
+	#Set Witherzilla Minion Spawnrate
+	#Range: 1 ~ 10
+	WitherzillaMinionSpawnrate = 5
+	#Set Ghast Titan Minion Spawnrate
+	#Range: 1 ~ 10
+	GhastTitanMinionSpawnrate = 5
+	#Set Skeleton Titan Minion Spawnrate
+	#Range: 1 ~ 10
+	SkeletonTitanMinionSpawnrate = 5
+	#Enable Nightmare Mode
+	NightmareMode = false
+

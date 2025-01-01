@@ -1,0 +1,26 @@
+{
+  "mappings": {
+    "com/zerwhit/mixin/block/MixinPlayerRenderer": {
+      "Lnet/minecraft/item/ItemStack;getUseAnimation()Lnet/minecraft/item/UseAction;": "Lnet/minecraft/item/ItemStack;func_77975_n()Lnet/minecraft/item/UseAction;",
+      "getArmPose": "Lnet/minecraft/client/renderer/entity/PlayerRenderer;func_241741_a_(Lnet/minecraft/client/entity/player/AbstractClientPlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/client/renderer/entity/model/BipedModel$ArmPose;"
+    },
+    "com/zerwhit/mixin/block/MixinBipedModel": {
+      "poseRightArm": "Lnet/minecraft/client/renderer/entity/model/BipedModel;func_241654_b_(Lnet/minecraft/entity/LivingEntity;)V",
+      "setupAttackAnimation": "Lnet/minecraft/client/renderer/entity/model/BipedModel;func_230486_a_(Lnet/minecraft/entity/LivingEntity;F)V",
+      "poseLeftArm": "Lnet/minecraft/client/renderer/entity/model/BipedModel;func_241655_c_(Lnet/minecraft/entity/LivingEntity;)V"
+    }
+  },
+  "data": {
+    "searge": {
+      "com/zerwhit/mixin/block/MixinPlayerRenderer": {
+        "Lnet/minecraft/item/ItemStack;getUseAnimation()Lnet/minecraft/item/UseAction;": "Lnet/minecraft/item/ItemStack;func_77975_n()Lnet/minecraft/item/UseAction;",
+        "getArmPose": "Lnet/minecraft/client/renderer/entity/PlayerRenderer;func_241741_a_(Lnet/minecraft/client/entity/player/AbstractClientPlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/client/renderer/entity/model/BipedModel$ArmPose;"
+      },
+      "com/zerwhit/mixin/block/MixinBipedModel": {
+        "poseRightArm": "Lnet/minecraft/client/renderer/entity/model/BipedModel;func_241654_b_(Lnet/minecraft/entity/LivingEntity;)V",
+        "setupAttackAnimation": "Lnet/minecraft/client/renderer/entity/model/BipedModel;func_230486_a_(Lnet/minecraft/entity/LivingEntity;F)V",
+        "poseLeftArm": "Lnet/minecraft/client/renderer/entity/model/BipedModel;func_241655_c_(Lnet/minecraft/entity/LivingEntity;)V"
+      }
+    }
+  }
+}

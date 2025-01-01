@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bedrock",
+  "pattern": [
+    "H H",
+    "CVC",
+    "CCC"
+  ],
+  "key": {
+    "H": {
+      "item": "thetitans:harcadium_block"
+    },
+    "V": {
+      "item": "thetitans:void_block"
+    },
+    "C": {
+      "item": "thetitans:bedrock_compact"
+    }
+  },
+  "result": {
+    "item": "thetitans:adminium_chestplate"
+  }
+}
