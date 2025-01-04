@@ -75,9 +75,9 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
         this.middleBody = new EntityTitanPart(worldIn, this, "middlebody", 8.0f, 4.0f);
         this.body = new EntityTitanPart(worldIn, this, "body", 8.0f, 4.0f);
         this.rightArm = new EntityTitanPart(worldIn, this, "rightarm", 4.0f, 4.0f);
-        this.rightArm = new EntityTitanPart(worldIn, this, "rightfore", 4.0f, 4.0f);
+        this.rightFore = new EntityTitanPart(worldIn, this, "rightfore", 4.0f, 4.0f);
         this.leftArm = new EntityTitanPart(worldIn, this, "leftarm", 4.0f, 4.0f);
-        this.rightArm = new EntityTitanPart(worldIn, this, "leftfore", 4.0f, 4.0f);
+        this.leftFore = new EntityTitanPart(worldIn, this, "leftfore", 4.0f, 4.0f);
         this.rightLeg = new EntityTitanPart(worldIn, this, "rightleg", 4.0f, 6.0f);
         this.rightCalf = new EntityTitanPart(worldIn, this, "rightcalf", 4.0f, 6.0f);
         this.leftLeg = new EntityTitanPart(worldIn, this, "leftleg", 4.0f, 6.0f);
