@@ -101,7 +101,7 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
     @Override
     public void prepareMobModel(EntityZombieTitan p_212843_1_, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
         this.partialTick = p_212843_4_;
-	    p_212843_1_.head.boneRegistry(this.Head);
+	    p_212843_1_.head.boneRegistry(this.Head, this.TopBody);
 		p_212843_1_.body.boneRegistry(this.Torso);
 		p_212843_1_.leftArm.boneRegistry(this.LeftShoulder);
 		p_212843_1_.rightArm.boneRegistry(this.RightShoulder);
@@ -137,6 +137,7 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
 			this.LeftForearm,
 			this.RightShoulder,
 			this.RightForearm,
+			this.HeldItem, 
 			this.MiddleBody, 
 			this.TopBody, 
 			this.Head, 

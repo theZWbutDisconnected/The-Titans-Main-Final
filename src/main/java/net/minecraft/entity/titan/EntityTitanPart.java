@@ -31,6 +31,7 @@ public class EntityTitanPart extends PartEntity<EntityTitan> {
     private EntitySize entitySize;
 	
 	private ModelRenderer bone;
+	private ModelRenderer parent;
 
     public EntityTitanPart(EntityTitan titan) {
         super(titan);
@@ -125,14 +126,15 @@ public class EntityTitanPart extends PartEntity<EntityTitan> {
         }
     }
 	
-	public void boneRegistry(ModelRenderer part) {
+	public void boneRegistry(ModelRenderer part, ModelRenderer parent) {
 		this.bone = part;
+		this.parent = parent;
 	}
 	
 	public void update() {
 		Vector3d temp = this.position();
 		if (this.bone != null) {
-		    Vector3d pos = new Vector3d(this.bone.x / 16.0D, this.bone.y / 16.0D, this.bone.z / 16.0D);
+		    Vector3d pos = new Vector3d(this.bone.x, this.bone.y, this.bone.z);
 		    Vector3d rot = new Vector3d(this.bone.xRot, this.bone.yRot, this.bone.zRot);
 		    this.setPos(temp.x + pos.x, temp.y + pos.y, temp.z + pos.z);
 		}
