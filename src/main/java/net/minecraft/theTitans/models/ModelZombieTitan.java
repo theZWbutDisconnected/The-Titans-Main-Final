@@ -101,6 +101,18 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
     @Override
     public void prepareMobModel(EntityZombieTitan p_212843_1_, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
         this.partialTick = p_212843_4_;
+	    
+entity.head.boneRegistry(this.Head);
+
+		p_212843_1_.body.boneRegistry(this.Torso);
+
+		p_212843_1_.leftArm.boneRegistry(this.LeftShoulder);
+
+		p_212843_1_.rightArm.boneRegistry(this.RightShoulder);
+
+		p_212843_1_.leftLeg.boneRegistry(this.LeftThigh);
+
+		p_212843_1_.rightLeg.boneRegistry(this.RightThigh);
         super.prepareMobModel(p_212843_1_, p_212843_2_, p_212843_3_, p_212843_4_);
     }
 
@@ -122,12 +134,6 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
             this.Head22.visible = false;
             this.Head3.visible = false;
         }
-		entity.head.boneRegistry(this.Head);
-		entity.body.boneRegistry(this.Torso);
-		entity.leftArm.boneRegistry(this.LeftShoulder);
-		entity.rightArm.boneRegistry(this.RightShoulder);
-		entity.leftLeg.boneRegistry(this.LeftThigh);
-		entity.rightLeg.boneRegistry(this.RightThigh);
     }
 
     private void resetAngles() {
