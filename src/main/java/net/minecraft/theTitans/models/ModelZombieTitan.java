@@ -131,7 +131,20 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
 
 	@Override
 	public ModelRenderer[] getChilds() {
-		return new ModelRenderer[] {this.Torso, this.LeftThigh, this.RightThigh};
+		return new ModelRenderer[] {
+			this.Torso, 
+			this.LeftShoulder,
+			this.LeftForearm,
+			this.RightShoulder,
+			this.RightForearm,
+			this.MiddleBody, 
+			this.TopBody, 
+			this.Head, 
+			this.LeftThigh, 
+			this.LeftCalf,
+			this.RightThigh,
+			this.RightCalf
+		};
 	}
 
     @Override
