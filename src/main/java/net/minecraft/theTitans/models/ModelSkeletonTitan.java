@@ -11,7 +11,7 @@ import net.minecraft.util.math.MathHelper;
 import thehippomaster.AnimationAPI.IAnimatedEntity;
 import thehippomaster.AnimationAPI.client.Animator;
 
-public class ModelSkeletonTitan extends EntityModel<EntitySkeletonTitan> {
+public class ModelSkeletonTitan extends ModelTitanBase<EntitySkeletonTitan> {
     private final Animator animator;
     public ModelRenderer Hips;
     public ModelRenderer LeftThigh;

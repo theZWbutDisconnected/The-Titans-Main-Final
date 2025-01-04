@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.titan.EntitySlimeTitan;
 
-public class ModelSlimeTitan extends EntityModel<EntitySlimeTitan> {
+public class ModelSlimeTitan extends ModelTitanBase<EntitySlimeTitan> {
     ModelRenderer slimeBodies;
     ModelRenderer slimeRightEye;
     ModelRenderer slimeLeftEye;

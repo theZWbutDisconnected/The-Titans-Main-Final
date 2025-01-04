@@ -601,7 +601,14 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
                     }
                 }
             }
+			this.head.update();
+			this.body.update();
+			this.leftArm.update();
+			this.rightArm.update();
+			this.leftLeg.update();
+			this.rightLeg.update();
         }
+		
         this.meleeTitan = true;
         if (this.getAnimID() == 12 && this.getTarget() != null && this.getAnimTick() == 55) {
             for (int i4 = 0; i4 < 4 + 2 * this.level.getDifficulty().getId(); ++i4) {

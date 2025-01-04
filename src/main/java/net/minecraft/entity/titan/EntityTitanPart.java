@@ -15,6 +15,11 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.vector.Vector3d;
+import java.util.HashMap;
+import java.util.UUID;
+import java.lang.reflect.Field;
 
 public class EntityTitanPart extends PartEntity<EntityTitan> {
     public IEntityMultiPartTitan entityDragonObj;
@@ -24,6 +29,8 @@ public class EntityTitanPart extends PartEntity<EntityTitan> {
     public float width;
     public float height;
     private EntitySize entitySize;
+	
+	private ModelRenderer bone;
 
     public EntityTitanPart(EntityTitan titan) {
         super(titan);
@@ -117,6 +124,17 @@ public class EntityTitanPart extends PartEntity<EntityTitan> {
             this.removeAfterChangingDimensions();
         }
     }
+	
+	public void boneRegistry(ModelRenderer part) {
+		this.bone = part;
+	}
+	
+	public void update() {
+		Vector3d temp = this.position();
+		Vector3d pos = new Vector3d(this.bone.x / 16.0D, this.bone.y / 16.0D, this.bone.z / 16.0D);
+		Vector3d rot = new Vector3d(this.bone.xRot, this.bone.yRot, this.bone.zRot);
+		this.setPos(temp.x + pos.x, temp.y + pos.y, temp.z + pos.z);
+	}
 
     protected void defineSynchedData() {
     }

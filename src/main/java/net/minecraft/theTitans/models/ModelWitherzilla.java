@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.titan.EntityWitherzilla;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelWitherzilla extends EntityModel<EntityWitherzilla> {
+public class ModelWitherzilla extends ModelTitanBase<EntityWitherzilla> {
     private final ModelRenderer[] spine;
     public ModelRenderer[] heads;
 

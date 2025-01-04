@@ -14,6 +14,7 @@ import thehippomaster.AnimationAPI.IAnimatedEntity;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import net.minecraft.theTitans.models.ModelTitanBase;
 
 @OnlyIn(Dist.CLIENT)
 public class Animator {
@@ -23,11 +24,12 @@ public class Animator {
     private int tempTick = 0;
     private int prevTempTick;
     private boolean correctAnim = false;
-    private EntityModel mainModel;
+    private ModelTitanBase mainModel;
     private IAnimatedEntity animEntity;
     private float partialTick;
 
-    public Animator(EntityModel modelRenderer) {
+    public Animator(ModelTitanBase modelRenderer) {
+		this.mainModel = modelRenderer;
     }
 
     public static void resetAngles(ModelRenderer... boxes) {
@@ -58,6 +60,11 @@ public class Animator {
         this.transformMap.clear();
         this.prevTransformMap.clear();
         this.partialTick = partialTick;
+		for (ModelRenderer i : this.mainModel.childBones) {
+			i.xRot = 0.0F;
+			i.yRot = 0.0F;
+			i.zRot = 0.0F;
+		}
     }
 
     public boolean setAnim(int animID) {

@@ -9,7 +9,7 @@ import net.minecraft.util.math.MathHelper;
 import thehippomaster.AnimationAPI.IAnimatedEntity;
 import thehippomaster.AnimationAPI.client.Animator;
 
-public class ModelIronGolemTitan extends EntityModel<EntityIronGolemTitan> {
+public class ModelIronGolemTitan extends ModelTitanBase<EntityIronGolemTitan> {
     private final Animator animator;
     public ModelRenderer LeftLeg1;
     public ModelRenderer RightLeg1;

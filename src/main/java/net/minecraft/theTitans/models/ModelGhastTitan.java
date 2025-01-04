@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.titan.EntityGhastTitan;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelGhastTitan extends EntityModel<EntityGhastTitan> {
+public class ModelGhastTitan extends ModelTitanBase<EntityGhastTitan> {
     public ModelRenderer body;
     public ModelRenderer tentacle1;
     public ModelRenderer tentacle2;

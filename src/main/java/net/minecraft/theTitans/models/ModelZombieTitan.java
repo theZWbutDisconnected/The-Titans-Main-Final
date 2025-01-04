@@ -10,7 +10,7 @@ import net.minecraft.util.math.MathHelper;
 import thehippomaster.AnimationAPI.IAnimatedEntity;
 import thehippomaster.AnimationAPI.client.Animator;
 
-public class ModelZombieTitan extends EntityModel<EntityZombieTitan> {
+public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
     private final Animator animator;
     public ModelRenderer Torso;
     public ModelRenderer LeftThigh;
@@ -105,7 +105,7 @@ public class ModelZombieTitan extends EntityModel<EntityZombieTitan> {
     }
 
     public void setupAnim(final EntityZombieTitan entity, final float f, final float f1, final float f2, final float f3, final float f4) {
-        this.resetAngles();
+        // this.resetAngles();
         this.animate(entity, f, f1, f2, f3, f4);
         this.HeldItem.visible = entity.isArmed();
         this.Head2.visible = entity.isVillager();
@@ -122,6 +122,12 @@ public class ModelZombieTitan extends EntityModel<EntityZombieTitan> {
             this.Head22.visible = false;
             this.Head3.visible = false;
         }
+		entity.head.boneRegistry(this.Head);
+		entity.body.boneRegistry(this.Torso);
+		entity.leftArm.boneRegistry(this.LeftShoulder);
+		entity.rightArm.boneRegistry(this.RightShoulder);
+		entity.leftLeg.boneRegistry(this.LeftThigh);
+		entity.rightLeg.boneRegistry(this.RightThigh);
     }
 
     private void resetAngles() {
@@ -133,9 +139,14 @@ public class ModelZombieTitan extends EntityModel<EntityZombieTitan> {
         Animator.resetAngles(this.RightThigh, this.RightCalf);
     }
 
+	@Override
+	public ModelRenderer[] getChilds() {
+		return new ModelRenderer[] {this.Torso, this.LeftThigh, this.RightThigh};
+	}
+
     @Override
     public void renderToBuffer(MatrixStack p_225598_1_, IVertexBuilder p_225598_2_, int p_225598_3_, int p_225598_4_, float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
-        this.Torso.render(p_225598_1_, p_225598_2_, p_225598_3_, p_225598_4_, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
+		this.Torso.render(p_225598_1_, p_225598_2_, p_225598_3_, p_225598_4_, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
         this.LeftThigh.render(p_225598_1_, p_225598_2_, p_225598_3_, p_225598_4_, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
         this.RightThigh.render(p_225598_1_, p_225598_2_, p_225598_3_, p_225598_4_, p_225598_5_, p_225598_6_, p_225598_7_, p_225598_8_);
     }
@@ -173,7 +184,7 @@ public class ModelZombieTitan extends EntityModel<EntityZombieTitan> {
                 this.RightShoulder.yRot = (-0.001f + 0.01f * f6) * 3.1415927f;
                 this.LeftShoulder.yRot = (0.001f + -0.01f * f6) * 3.1415927f;
             }
-            if (entitytitan.isVehicle()) {
+            if (entitytitan.getVehicle() != null) {
                 this.RightThigh.xRot = -1.5707964f;
                 this.LeftThigh.xRot = -1.5707964f;
                 this.RightThigh.yRot = 0.31415927f;
