@@ -642,18 +642,18 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
                     }
                 }
             }
-			this.head.update();
-			this.body.update();
-			this.middleBody.update();
-			this.topBody.update();
-			this.leftArm.update();
-			this.leftFore.update();
-			this.rightArm.update();
-			this.rightFore.update();
-			this.leftLeg.update();
-			this.leftCalf.update();
-			this.rightLeg.update();
-			this.rightCalf.update();
+			//this.head.update();
+			//this.body.update();
+			//this.middleBody.update();
+			//this.topBody.update();
+			//this.leftArm.update();
+			//this.leftFore.update();
+			//this.rightArm.update();
+			//this.rightFore.update();
+			//this.leftLeg.update();
+			//this.leftCalf.update();
+			//this.rightLeg.update();
+			//this.rightCalf.update();
         }
 		
         this.meleeTitan = true;
