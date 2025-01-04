@@ -102,11 +102,17 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
     public void prepareMobModel(EntityZombieTitan p_212843_1_, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
         this.partialTick = p_212843_4_;
 	    p_212843_1_.head.boneRegistry(this.Head, this.TopBody);
-		p_212843_1_.body.boneRegistry(this.Torso);
-		p_212843_1_.leftArm.boneRegistry(this.LeftShoulder);
-		p_212843_1_.rightArm.boneRegistry(this.RightShoulder);
-		p_212843_1_.leftLeg.boneRegistry(this.LeftThigh);
-		p_212843_1_.rightLeg.boneRegistry(this.RightThigh);
+		p_212843_1_.topBody.boneRegistry(this.TopBody, this.Torso);
+		p_212843_1_.middleBody.boneRegistry(this.MiddleBody, this.Torso);
+		p_212843_1_.body.boneRegistry(this.Torso, null);
+		p_212843_1_.leftArm.boneRegistry(this.LeftShoulder, null);
+		p_212843_1_.leftFore.boneRegistry(this.LeftForearm, this.LeftShoulder);
+		p_212843_1_.rightArm.boneRegistry(this.RightShoulder, null);
+		p_212843_1_.rightFore.boneRegistry(this.RightForearm, this.RightShoulder);
+		p_212843_1_.leftLeg.boneRegistry(this.LeftThigh, null);
+		p_212843_1_.leftCalf.boneRegistry(this.LeftCalf, this.LeftThigh);
+		p_212843_1_.rightLeg.boneRegistry(this.RightThigh, null);
+		p_212843_1_.rightCalf.boneRegistry(this.RightCalf, this.RightThigh);
         super.prepareMobModel(p_212843_1_, p_212843_2_, p_212843_3_, p_212843_4_);
     }
 
