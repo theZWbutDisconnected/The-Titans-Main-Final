@@ -60,10 +60,11 @@ public class Animator {
         this.transformMap.clear();
         this.prevTransformMap.clear();
         this.partialTick = partialTick;
-		for (ModelRenderer i : this.mainModel.childBones) {
-			i.xRot = 0.0F;
-			i.yRot = 0.0F;
-			i.zRot = 0.0F;
+		for (int i = 0; i < this.mainModel.childBones.size(); i++) {
+			ModelRenderer model = (ModelRenderer) this.mainModel.childBones.get(i);
+			model.xRot = 0.0F;
+			model.yRot = 0.0F;
+			model.zRot = 0.0F;
 		}
     }
 
