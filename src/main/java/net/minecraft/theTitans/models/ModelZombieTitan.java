@@ -101,23 +101,16 @@ public class ModelZombieTitan extends ModelTitanBase<EntityZombieTitan> {
     @Override
     public void prepareMobModel(EntityZombieTitan p_212843_1_, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
         this.partialTick = p_212843_4_;
-	    
-p_212843_1_.head.boneRegistry(this.Head);
-
+	    p_212843_1_.head.boneRegistry(this.Head);
 		p_212843_1_.body.boneRegistry(this.Torso);
-
 		p_212843_1_.leftArm.boneRegistry(this.LeftShoulder);
-
 		p_212843_1_.rightArm.boneRegistry(this.RightShoulder);
-
 		p_212843_1_.leftLeg.boneRegistry(this.LeftThigh);
-
 		p_212843_1_.rightLeg.boneRegistry(this.RightThigh);
         super.prepareMobModel(p_212843_1_, p_212843_2_, p_212843_3_, p_212843_4_);
     }
 
     public void setupAnim(final EntityZombieTitan entity, final float f, final float f1, final float f2, final float f3, final float f4) {
-        // this.resetAngles();
         this.animate(entity, f, f1, f2, f3, f4);
         this.HeldItem.visible = entity.isArmed();
         this.Head2.visible = entity.isVillager();
@@ -134,15 +127,6 @@ p_212843_1_.head.boneRegistry(this.Head);
             this.Head22.visible = false;
             this.Head3.visible = false;
         }
-    }
-
-    private void resetAngles() {
-        Animator.resetAngles(this.Head, this.Head2, this.Head22, this.Head3);
-        Animator.resetAngles(this.LeftShoulder, this.LeftForearm);
-        Animator.resetAngles(this.RightShoulder, this.RightForearm, this.HeldItem);
-        Animator.resetAngles(this.Torso, this.MiddleBody, this.TopBody);
-        Animator.resetAngles(this.LeftThigh, this.LeftCalf);
-        Animator.resetAngles(this.RightThigh, this.RightCalf);
     }
 
 	@Override

@@ -26,9 +26,10 @@ public abstract class ModelTitanBase<T extends EntityTitan> extends EntityModel<
 				} catch (NoSuchFieldException e1) {}
 			}
 			try {
-				for (ModelRenderer j : (ObjectList<ModelRenderer>)(f.get(i))) {
-					if (!this.has(this.getChilds(), j))
-						childBones.add(j);
+				for (int k = 0; k < ((ObjectList)f.get(i)).size(); k++) {
+					ModelRenderer model = (ModelRenderer) ((ObjectList)f.get(i)).get(k);
+					if (!this.has(this.getChilds(), model))
+						childBones.add(model);
 				}
 			} catch (IllegalAccessException e) {} catch (IllegalArgumentException e) {}
 		}
