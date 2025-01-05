@@ -574,8 +574,8 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
 			
             this.rightArm.moveTo(this.getX() + f3 * (this.isBaby() ? 3.0 : 6.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() + f2 * (this.isBaby() ? 3.0 : 6.0), 0.0f, 0.0f);
             this.leftArm.moveTo(this.getX() - f3 * (this.isBaby() ? 3.0 : 6.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() - f2 * (this.isBaby() ? 3.0 : 6.0), 0.0f, 0.0f);
-            this.rightFore.moveTo(this.getX() + f3 * (this.isBaby() ? 3.0 : 12.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() + f2 * (this.isBaby() ? 3.0 : 12.0), 0.0f, 0.0f);
-            this.leftFore.moveTo(this.getX() - f3 * (this.isBaby() ? 3.0 : 12.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() - f2 * (this.isBaby() ? 3.0 : 12.0), 0.0f, 0.0f);
+            this.rightFore.moveTo(this.rightArm.getX() + f3 * (this.isBaby() ? 3.0 : 12.0), this.rightArm.getY(), this.rightArm.getZ() + f2 * (this.isBaby() ? 3.0 : 12.0), 0.0f, 0.0f);
+            this.leftFore.moveTo(this.leftArm.getX() - f3 * (this.isBaby() ? 3.0 : 12.0), this.getY(), this.leftArm.getZ() - f2 * (this.isBaby() ? 3.0 : 12.0), 0.0f, 0.0f);
             
 			this.rightLeg.moveTo(this.getX() + f3 * (this.isBaby() ? 1.0 : 2.0), this.getY() + (this.isBaby() ? 3.0 : 6.0), this.getZ() + f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
             this.leftLeg.moveTo(this.getX() - f3 * (this.isBaby() ? 1.0 : 2.0), this.getY() + (this.isBaby() ? 3.0 : 6.0), this.getZ() - f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
