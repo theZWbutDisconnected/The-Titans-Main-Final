@@ -133,11 +133,20 @@ public class EntityTitanPart extends PartEntity<EntityTitan> {
 	
 	public void update() {
 		Vector3d temp = this.position();
+		Vector3d pos = new Vector3d(0.0d, 0.0d, 0.0d);
+		Vector3d rot = new Vector3d(0.0d, 0.0d, 0.0d);
+		Vector3d parentPos = new Vector3d(0.0d, 0.0d, 0.0d);
 		if (this.bone != null) {
-		    Vector3d pos = new Vector3d(this.bone.x, this.bone.y, this.bone.z);
-		    Vector3d rot = new Vector3d(this.bone.xRot, this.bone.yRot, this.bone.zRot);
-		    this.setPos(temp.x + pos.x, temp.y + pos.y, temp.z + pos.z);
+		    pos = new Vector3d(this.bone.x, this.bone.y, this.bone.z);
+		    rot = new Vector3d(this.bone.xRot, this.bone.yRot, this.bone.zRot);
+			if (this.parent != null)
+				parentPos = new Vector3d(this.parent.x, this.parent.y, this.parent.z);
 		}
+		this.setPos(
+		    temp.x + pos.x, 
+		    temp.y + pos.y, 
+		    temp.z + pos.z
+		);
 	}
 
     protected void defineSynchedData() {

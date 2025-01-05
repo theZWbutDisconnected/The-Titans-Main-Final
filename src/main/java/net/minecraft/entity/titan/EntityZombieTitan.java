@@ -566,7 +566,7 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
             rightFore2.height = n4;
             leftFore.width = width;
             rightFore.width = width2;
-            this.head.moveTo(this.getX(), this.getY() + (this.isBaby() ? 12.0 : 24.0), this.getZ(), 0.0f, 0.0f);
+            /*this.head.moveTo(this.getX(), this.getY() + (this.isBaby() ? 12.0 : 24.0), this.getZ(), 0.0f, 0.0f);
             this.body.moveTo(this.getX(), this.getY() + (this.isBaby() ? 2.0 : 12.0), this.getZ(), 0.0f, 0.0f);
             this.middleBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 4.0 : 16.0), this.getZ(), 0.0f, 0.0f);
             this.topBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 6.0 : 20.0), this.getZ(), 0.0f, 0.0f);
@@ -581,6 +581,36 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
             this.leftLeg.moveTo(this.getX() - f3 * (this.isBaby() ? 1.0 : 2.0), this.getY() + (this.isBaby() ? 3.0 : 6.0), this.getZ() - f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
             this.rightCalf.moveTo(this.getX() + f3 * (this.isBaby() ? 1.0 : 2.0), this.getY(), this.getZ() + f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
             this.leftCalf.moveTo(this.getX() - f3 * (this.isBaby() ? 1.0 : 2.0), this.getY(), this.getZ() - f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
+			*/
+			
+			this.body.moveTo(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
+            this.middleBody.moveTo(this.body.getX(), this.body.getY(), this.body.getZ(), 0.0f, 0.0f);
+            this.topBody.moveTo(this.middleBody.getX(), this.middleBody.getY(), this.middleBody.getZ(), 0.0f, 0.0f);
+			this.head.moveTo(this.topBody.getX(), this.topBody.getY(), this.topBody.getZ(), 0.0f, 0.0f);
+            
+
+            this.rightArm.moveTo(this.topBody.getX(), this.topBody.getY(), this.topBody.getZ(), 0.0f, 0.0f);
+            this.leftArm.moveTo(this.topBody.getX(), this.topBody.getY(), this.topBody.getZ(), 0.0f, 0.0f);
+            this.rightFore.moveTo(this.rightArm.getX(), this.rightArm.getY(), this.rightArm.getZ(), 0.0f, 0.0f);
+            this.leftFore.moveTo(this.leftArm.getX(), this.leftArm.getY(), this.leftArm.getZ(), 0.0f, 0.0f);
+
+			this.rightLeg.moveTo(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
+            this.leftLeg.moveTo(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
+            this.rightCalf.moveTo(this.rightLeg.getX(), this.rightLeg.getY(), this.rightLeg.getZ(), 0.0f, 0.0f);
+            this.leftCalf.moveTo(this.leftLeg.getX(), this.leftLeg.getY(), this.leftLeg.getZ(), 0.0f, 0.0f);
+			
+			this.head.update();
+			this.body.update();
+			this.middleBody.update();
+			this.topBody.update();
+			this.leftArm.update();
+			this.leftFore.update();
+			this.rightArm.update();
+			this.rightFore.update();
+			this.leftLeg.update();
+			this.leftCalf.update();
+			this.rightLeg.update();
+			this.rightCalf.update();
             if (this.isAlive() && !this.isStunned) {
                 this.collideWithEntities(this.head, this.level.getEntities(this, this.head.getBoundingBox().inflate(1.0, 0.0, 1.0)));
                 this.collideWithEntities(this.body, this.level.getEntities(this, this.body.getBoundingBox().inflate(1.0, 0.0, 1.0)));
@@ -642,18 +672,6 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
                     }
                 }
             }
-			//this.head.update();
-			//this.body.update();
-			//this.middleBody.update();
-			//this.topBody.update();
-			//this.leftArm.update();
-			//this.leftFore.update();
-			//this.rightArm.update();
-			//this.rightFore.update();
-			//this.leftLeg.update();
-			//this.leftCalf.update();
-			//this.rightLeg.update();
-			//this.rightCalf.update();
         }
 		
         this.meleeTitan = true;
