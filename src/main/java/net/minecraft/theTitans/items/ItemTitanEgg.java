@@ -34,23 +34,21 @@ public class ItemTitanEgg extends Item {
         EntityTitan entity = null;
         if (this.titanType == RenderTheTitans.slimeTitan) {
             entity = new EntitySlimeTitan(this.titanType, level);
-            entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
         } else if (this.titanType == RenderTheTitans.zombieTitan) {
             entity = new EntityZombieTitan(this.titanType, level);
-            entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
         } else if (this.titanType == RenderTheTitans.skeletonTitan) {
             entity = new EntitySkeletonTitan(this.titanType, level);
-            entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
+        } else if (this.titanType == RenderTheTitans.witherSkeletonTitan) {
+            entity = new EntitySkeletonTitan(this.titanType, level);
+			((EntitySkeletonTitan)entity).becomeWitherSkeleton(true);
         } else if (this.titanType == RenderTheTitans.ghastTitan) {
             entity = new EntityGhastTitan(this.titanType, level);
-            entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
         } else if (this.titanType == RenderTheTitans.ironGolemTitan) {
             entity = new EntityIronGolemTitan(this.titanType, level);
-            entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
         } else if (this.titanType == RenderTheTitans.witherzilla) {
             entity = new EntityWitherzilla(this.titanType, level);
-            entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
         }
+		entity.setPos(pos.getX(), pos.getY() + 1.0, pos.getZ());
         if (!player.level.isClientSide)
             entity.finalizeSpawn(player.level.getServer().getLevel(player.level.dimension()), p_195939_1_.getLevel().getCurrentDifficultyAt(entity.blockPosition()), SpawnReason.SPAWN_EGG, null, null);
         level.addFreshEntity(entity);

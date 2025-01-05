@@ -81,6 +81,7 @@ public class TheTitans {
         event.put(RenderTheTitans.slimeTitan, EntitySlimeTitan.applyEntityAttributes().build());
         event.put(RenderTheTitans.zombieTitan, EntityZombieTitan.applyEntityAttributes().build());
         event.put(RenderTheTitans.skeletonTitan, EntitySkeletonTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.witherSkeletonTitan, EntitySkeletonTitan.applyEntityAttributes().build());
         event.put(RenderTheTitans.ghastTitan, EntityGhastTitan.applyEntityAttributes().build());
         event.put(RenderTheTitans.ironGolemTitan, EntityIronGolemTitan.applyEntityAttributes().build());
         event.put(RenderTheTitans.witherzilla, EntityWitherzilla.applyEntityAttributes().build());

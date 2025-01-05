@@ -31,6 +31,8 @@ public class RenderTheTitans {
     public static EntityType<EntityZombieTitan> zombieTitan;
     @EventRegistry(identifier = "skeleton_titan")
     public static EntityType<EntitySkeletonTitan> skeletonTitan;
+    @EventRegistry(identifier = "wither_skeleton_titan")
+    public static EntityType<EntitySkeletonTitan> witherSkeletonTitan;
     @EventRegistry(identifier = "ghast_titan")
     public static EntityType<EntityGhastTitan> ghastTitan;
     @EventRegistry(identifier = "ultima_iron_golem_titan")
@@ -87,12 +89,17 @@ public class RenderTheTitans {
                 .of(EntityZombieTitan::new, EntityClassification.MISC)
                 .sized(8.0f, 32.0f)
                 .fireImmune()
-                .build("zombie_titan");
+			    .build("zombie_titan");
         skeletonTitan = EntityType.Builder
-                .of(EntitySkeletonTitan::new, EntityClassification.MISC)
-                .sized(8.0f, 32.0f)
-                .fireImmune()
-                .build("skeleton_titan");
+			    .of(EntitySkeletonTitan::new, EntityClassification.MISC)
+	        	.sized(8.0f, 32.0f)
+			    .fireImmune()
+			    .build("skeleton_titan");
+        witherSkeletonTitan = EntityType.Builder
+			    .of((type, worldIn) -> new EntitySkeletonTitan(type, worldIn, true), EntityClassification.MISC)
+		        .sized(8.0f, 32.0f)
+			    .fireImmune()
+			    .build("wither_skeleton_titan");
         ghastTitan = EntityType.Builder
                 .of(EntityGhastTitan::new, EntityClassification.MISC)
                 .sized(110.0f, 110.0f)

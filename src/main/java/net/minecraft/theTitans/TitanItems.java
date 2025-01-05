@@ -456,6 +456,7 @@ public class TitanItems {
         eggSlimeTitan = new ItemTitanEgg(RenderTheTitans.slimeTitan);
         eggZombieTitan = new ItemTitanEgg(RenderTheTitans.zombieTitan);
         eggSkeletonTitan = new ItemTitanEgg(RenderTheTitans.skeletonTitan);
+        eggWitherSkeletonTitan = new ItemTitanEgg(RenderTheTitans.witherSkeletonTitan);
         eggGhastTitan = new ItemTitanEgg(RenderTheTitans.ghastTitan);
         eggUltimaIronGolemTitan = new ItemTitanEgg(RenderTheTitans.ironGolemTitan);
         eggWitherzilla = new ItemTitanEgg(RenderTheTitans.witherzilla);

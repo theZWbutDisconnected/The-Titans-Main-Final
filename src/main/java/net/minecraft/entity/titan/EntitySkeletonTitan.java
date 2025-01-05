@@ -72,7 +72,7 @@ public class EntitySkeletonTitan extends EntityTitan implements IEntityMultiPart
         this.rightLeg = new EntityTitanPart(worldIn, this, "rightleg", 2.0f, 12.0f);
         this.leftLeg = new EntityTitanPart(worldIn, this, "leftleg", 2.0f, 12.0f);
         this.partArray = new EntityTitanPart[]{this.head, this.pelvis, this.spine, this.ribCage, this.rightArm, this.leftArm, this.rightLeg, this.leftLeg};
-        if (this.getSkeletonType() == 1) {
+		if (this.getSkeletonType() == 1) {
             this.setSize(14.0f, 56.0f);
             this.xpReward = 50000;
         }
@@ -85,6 +85,11 @@ public class EntitySkeletonTitan extends EntityTitan implements IEntityMultiPart
         this.targetSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntitySnowGolemTitan.class, 0, false));
         this.targetSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntityZombieTitan.class, 0, false));
     }
+	
+	public EntitySkeletonTitan(EntityType<? extends EntityTitan> type, World worldIn, boolean nether_effect) {
+		this(type, worldIn);
+		this.becomeWitherSkeleton(nether_effect);
+	}
 
     @Override
     protected void applyEntityAI() {
