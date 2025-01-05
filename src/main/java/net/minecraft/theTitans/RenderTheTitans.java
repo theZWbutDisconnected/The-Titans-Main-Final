@@ -91,12 +91,12 @@ public class RenderTheTitans {
                 .fireImmune()
 			    .build("zombie_titan");
         skeletonTitan = EntityType.Builder
-			    .of(EntitySkeletonTitan::new, EntityClassification.MISC)
+			    .<EntitySkeletonTitan>of((type, worldIn) -> new EntitySkeletonTitan(type, worldIn), EntityClassification.MISC)
 	        	.sized(8.0f, 32.0f)
 			    .fireImmune()
 			    .build("skeleton_titan");
         witherSkeletonTitan = EntityType.Builder
-			    .of((type, worldIn) -> new EntitySkeletonTitan(type, worldIn, true), EntityClassification.MISC)
+			    .<EntitySkeletonTitan>of((type, worldIn) -> new EntitySkeletonTitan(type, worldIn, true), EntityClassification.MISC)
 		        .sized(8.0f, 32.0f)
 			    .fireImmune()
 			    .build("wither_skeleton_titan");
