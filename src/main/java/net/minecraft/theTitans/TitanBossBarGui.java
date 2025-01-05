@@ -140,7 +140,7 @@ public class TitanBossBarGui extends AbstractGui {
                         barHeight = 24;
                         color = 4802889;
                         y = 48;
-                        namey = y + 17;
+                        namey = y + 81 - 48;
                         TitanBossBarGui.texture = new ResourceLocation("thetitans", "textures/entities/titans/bossbars/wither_skeleton_titan.png");
                         final int width = event.getWindow().getGuiScaledWidth();
                         final int barWidthFilled = (int) (gfHealth * (barWidth + 1));
