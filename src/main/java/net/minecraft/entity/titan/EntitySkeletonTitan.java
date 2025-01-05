@@ -931,7 +931,7 @@ public class EntitySkeletonTitan extends EntityTitan implements IEntityMultiPart
         ILivingEntityData p_180482_2_2 = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
         this.setCanPickUpLoot(true);
         this.setWaiting(true);
-        if ((this.level.dimensionType().effectsLocation() == DimensionType.END_EFFECTS && this.getRandom().nextInt(5) > 0 && !this.level.isClientSide) || (this.shouldBeWitherSkeleton && !this.level.isClientSide)) {
+        if ((this.level.dimensionType().effectsLocation() == DimensionType.NETHER_EFFECTS && this.getRandom().nextInt(5) > 0 && !this.level.isClientSide) || (this.shouldBeWitherSkeleton && !this.level.isClientSide)) {
             this.setSkeletonType(1);
         } else {
             this.setSkeletonType(0);
