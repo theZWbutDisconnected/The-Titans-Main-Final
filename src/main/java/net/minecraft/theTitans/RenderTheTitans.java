@@ -97,7 +97,7 @@ public class RenderTheTitans {
 			    .build("skeleton_titan");
         witherSkeletonTitan = EntityType.Builder
 			    .<EntitySkeletonTitan>of((type, worldIn) -> new EntitySkeletonTitan(type, worldIn, true), EntityClassification.MISC)
-		        .sized(8.0f, 32.0f)
+		        .sized(14.0f, 56.0f)
 			    .fireImmune()
 			    .build("wither_skeleton_titan");
         ghastTitan = EntityType.Builder

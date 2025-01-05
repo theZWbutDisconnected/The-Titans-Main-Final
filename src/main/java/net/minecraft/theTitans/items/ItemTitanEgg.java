@@ -39,7 +39,7 @@ public class ItemTitanEgg extends Item {
         } else if (this.titanType == RenderTheTitans.skeletonTitan) {
             entity = new EntitySkeletonTitan(this.titanType, level);
         } else if (this.titanType == RenderTheTitans.witherSkeletonTitan) {
-            entity = new EntitySkeletonTitan(this.titanType, level);
+            entity = new EntitySkeletonTitan(this.titanType, level, true);
 			((EntitySkeletonTitan)entity).becomeWitherSkeleton(true);
         } else if (this.titanType == RenderTheTitans.ghastTitan) {
             entity = new EntityGhastTitan(this.titanType, level);

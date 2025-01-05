@@ -135,6 +135,20 @@ public class TitanBossBarGui extends AbstractGui {
                             fr.drawShadow(this.matrixStack, (int) e.getHealth() + "/" + (int) e.getMaxHealth(), width / 2 - fr.width((int) e.getHealth() + "/" + (int) e.getMaxHealth()) / 2, namey + 10, 16382457);
                         }
                     }
+                    if (e instanceof EntitySkeletonTitan && ((EntitySkeletonTitan) e).getSkeletonType() == 1) {
+                        barWidth = 185;
+                        barHeight = 24;
+                        color = 4802889;
+                        y = 48;
+                        namey = y + 17;
+                        TitanBossBarGui.texture = new ResourceLocation("thetitans", "textures/entities/titans/bossbars/wither_skeleton_titan.png");
+                        final int width = event.getWindow().getGuiScaledWidth();
+                        final int barWidthFilled = (int) (gfHealth * (barWidth + 1));
+                        final int x = width / 2 - barWidth / 2;
+                        if (flag) {
+                            fr.drawShadow(this.matrixStack, (int) e.getHealth() + "/" + (int) e.getMaxHealth(), width / 2 - fr.width((int) e.getHealth() + "/" + (int) e.getMaxHealth()) / 2, namey + 10, 16382457);
+                        }
+                    }
                     if (e instanceof EntityGhastTitan) {
                         barWidth = 185;
                         barHeight = 32;
