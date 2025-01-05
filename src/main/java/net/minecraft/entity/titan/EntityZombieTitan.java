@@ -64,12 +64,12 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
 
     public EntityZombieTitan(EntityType<? extends EntityTitan> type, World worldIn) {
         super(type, worldIn);
-        this.head = new EntityTitanPart(world, this, "head", 8.0f, 8.0f);
-        this.body = new EntityTitanPart(world, this, "body", 8.0f, 12.0f);
-        this.rightArm = new EntityTitanPart(world, this, "rightarm", 4.0f, 4.0f);
-        this.leftArm = new EntityTitanPart(world, this, "leftarm", 4.0f, 4.0f);
-        this.rightLeg = new EntityTitanPart(world, this, "rightleg", 4.0f, 12.0f);
-        this.leftLeg = new EntityTitanPart(world, this, "leftleg", 4.0f, 12.0f);
+        this.head = new EntityTitanPart(worldIn, this, "head", 8.0f, 8.0f);
+        this.body = new EntityTitanPart(worldIn, this, "body", 8.0f, 12.0f);
+        this.rightArm = new EntityTitanPart(worldIn, this, "rightarm", 4.0f, 4.0f);
+        this.leftArm = new EntityTitanPart(worldIn, this, "leftarm", 4.0f, 4.0f);
+        this.rightLeg = new EntityTitanPart(worldIn, this, "rightleg", 4.0f, 12.0f);
+        this.leftLeg = new EntityTitanPart(worldIn, this, "leftleg", 4.0f, 12.0f);
         this.partArray = new EntityTitanPart[]{this.head, this.body, this.rightArm, this.leftArm, this.rightLeg, this.leftLeg};
         this.setSize(8.0f, 32.0f);
         this.xpReward = 10000;
