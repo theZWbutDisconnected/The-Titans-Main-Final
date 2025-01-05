@@ -567,9 +567,9 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
             leftFore.width = width;
             rightFore.width = width2;
             this.head.moveTo(this.getX(), this.getY() + (this.isBaby() ? 12.0 : 24.0), this.getZ(), 0.0f, 0.0f);
-            this.body.moveTo(this.getX(), this.getY() + (this.isBaby() ? 2.0 : 4.0), this.getZ(), 0.0f, 0.0f);
-            this.middleBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 4.0 : 6.0), this.getZ(), 0.0f, 0.0f);
-            this.topBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 6.0 : 8.0), this.getZ(), 0.0f, 0.0f);
+            this.body.moveTo(this.getX(), this.getY() + (this.isBaby() ? 2.0 : 12.0), this.getZ(), 0.0f, 0.0f);
+            this.middleBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 4.0 : 16.0), this.getZ(), 0.0f, 0.0f);
+            this.topBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 6.0 : 20.0), this.getZ(), 0.0f, 0.0f);
 			
 			
             this.rightArm.moveTo(this.getX() + f3 * (this.isBaby() ? 3.0 : 6.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() + f2 * (this.isBaby() ? 3.0 : 6.0), 0.0f, 0.0f);
