@@ -88,6 +88,7 @@ public class EntitySkeletonTitan extends EntityTitan implements IEntityMultiPart
 	
 	public EntitySkeletonTitan(EntityType<? extends EntityTitan> type, World worldIn, boolean nether_effect) {
 		this(type, worldIn);
+		this.shouldBeWitherSkeleton = nether_effect;
 		this.becomeWitherSkeleton(nether_effect);
 	}
 
