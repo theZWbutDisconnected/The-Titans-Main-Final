@@ -54,35 +54,23 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
     public static final DataParameter<Boolean> t15 = EntityDataManager.defineId(EntityZombieTitan.class, DataSerializers.BOOLEAN);
     public static final DataParameter<Boolean> t16 = EntityDataManager.defineId(EntityZombieTitan.class, DataSerializers.BOOLEAN);
     public boolean isStunned;
-    public EntityTitanPart[] partArray;
-    public EntityTitanPart head;
-	public EntityTitanPart topBody;
-	public EntityTitanPart middleBody;
     public EntityTitanPart body;
-    public EntityTitanPart rightArm;
-	public EntityTitanPart rightFore;
+    public EntityTitanPart head;
     public EntityTitanPart leftArm;
-	public EntityTitanPart leftFore;
-    public EntityTitanPart rightLeg;
-	public EntityTitanPart rightCalf;
     public EntityTitanPart leftLeg;
-	public EntityTitanPart leftCalf;
+    public EntityTitanPart rightArm;
+    public EntityTitanPart rightLeg;
+    public EntityTitanPart[] partArray;
 
     public EntityZombieTitan(EntityType<? extends EntityTitan> type, World worldIn) {
         super(type, worldIn);
-        this.head = new EntityTitanPart(worldIn, this, "head", 8.0f, 8.0f);
-        this.topBody = new EntityTitanPart(worldIn, this, "topbody", 8.0f, 4.0f);
-        this.middleBody = new EntityTitanPart(worldIn, this, "middlebody", 8.0f, 4.0f);
-        this.body = new EntityTitanPart(worldIn, this, "body", 8.0f, 4.0f);
-        this.rightArm = new EntityTitanPart(worldIn, this, "rightarm", 4.0f, 4.0f);
-        this.rightFore = new EntityTitanPart(worldIn, this, "rightfore", 4.0f, 4.0f);
-        this.leftArm = new EntityTitanPart(worldIn, this, "leftarm", 4.0f, 4.0f);
-        this.leftFore = new EntityTitanPart(worldIn, this, "leftfore", 4.0f, 4.0f);
-        this.rightLeg = new EntityTitanPart(worldIn, this, "rightleg", 4.0f, 6.0f);
-        this.rightCalf = new EntityTitanPart(worldIn, this, "rightcalf", 4.0f, 6.0f);
-        this.leftLeg = new EntityTitanPart(worldIn, this, "leftleg", 4.0f, 6.0f);
-        this.leftCalf = new EntityTitanPart(worldIn, this, "leftcalf", 4.0f, 6.0f);
-        this.partArray = new EntityTitanPart[]{this.head, this.body, this.topBody, this.middleBody, this.rightArm, this.leftArm, this.rightFore, this.leftFore, this.leftCalf, this.rightCalf, this.rightLeg, this.leftLeg};
+        this.head = new EntityTitanPart(world, this, "head", 8.0f, 8.0f);
+        this.body = new EntityTitanPart(world, this, "body", 8.0f, 12.0f);
+        this.rightArm = new EntityTitanPart(world, this, "rightarm", 4.0f, 4.0f);
+        this.leftArm = new EntityTitanPart(world, this, "leftarm", 4.0f, 4.0f);
+        this.rightLeg = new EntityTitanPart(world, this, "rightleg", 4.0f, 12.0f);
+        this.leftLeg = new EntityTitanPart(world, this, "leftleg", 4.0f, 12.0f);
+        this.partArray = new EntityTitanPart[]{this.head, this.body, this.rightArm, this.leftArm, this.rightLeg, this.leftLeg};
         this.setSize(8.0f, 32.0f);
         this.xpReward = 10000;
         this.goalSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntityIronGolemTitan.class, 0, false));
@@ -518,99 +506,48 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
             this.setSize(8.0f, 32.0f);
         }
         if (this.tickCount > 5) {
-            final EntityTitanPart head = this.head;
-            final EntityTitanPart head2 = this.head;
-            final float n = this.isBaby() ? 6.0f : 8.0f;
-            head2.width = n;
-            head.height = n;
-            this.body.height = (this.isBaby() ? 2.0f : 4.0f);
-            this.body.width = (this.isBaby() ? 3.5f : 7.0f);
-			this.topBody.height = this.body.height;
-            this.topBody.width = this.body.width;
-			this.middleBody.height = this.body.height;
-            this.middleBody.width = this.body.width;
-            final EntityTitanPart leftLeg = this.leftLeg;
-            final EntityTitanPart rightLeg = this.rightLeg;
-			final EntityTitanPart leftCalf = this.leftCalf;
-            final EntityTitanPart rightCalf = this.rightCalf;
-            final float n2 = this.isBaby() ? 6.0f : 6.0f;
-            rightLeg.height = n2;
-            leftLeg.height = n2;
-			rightCalf.height = n2;
-            leftCalf.height = n2;
-            final EntityTitanPart leftLeg2 = this.leftLeg;
-            final EntityTitanPart rightLeg2 = this.rightLeg;
-			final EntityTitanPart leftCalf2 = this.leftCalf;
-            final EntityTitanPart rightCalf2 = this.rightCalf;
-            final float n3 = this.isBaby() ? 2.0f : 4.0f;
-            rightLeg2.width = n3;
-            leftLeg2.width = n3;
-			rightCalf2.width = n3;
-            leftCalf2.width = n3;
-            final EntityTitanPart rightArm = this.rightArm;
-            final EntityTitanPart leftArm = this.leftArm;
-            final EntityTitanPart rightArm2 = this.rightArm;
-            final EntityTitanPart leftArm2 = this.leftArm;
-			final EntityTitanPart rightFore = this.rightFore;
-            final EntityTitanPart leftFore = this.leftFore;
-            final EntityTitanPart rightFore2 = this.rightFore;
-            final EntityTitanPart leftFore2 = this.leftFore;
-            float width2;
-            final float width;
-            final float n4 = width = (this.isBaby() ? (width2 = 2.0f) : (width2 = 4.0f));
-            leftArm2.height = n4;
-            rightArm2.height = n4;
-            leftArm.width = width;
-            rightArm.width = width2;
-			leftFore2.height = n4;
-            rightFore2.height = n4;
-            leftFore.width = width;
-            rightFore.width = width2;
-            /*this.head.moveTo(this.getX(), this.getY() + (this.isBaby() ? 12.0 : 24.0), this.getZ(), 0.0f, 0.0f);
-            this.body.moveTo(this.getX(), this.getY() + (this.isBaby() ? 2.0 : 12.0), this.getZ(), 0.0f, 0.0f);
-            this.middleBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 4.0 : 16.0), this.getZ(), 0.0f, 0.0f);
-            this.topBody.moveTo(this.getX(), this.getY() + (this.isBaby() ? 6.0 : 20.0), this.getZ(), 0.0f, 0.0f);
+        	float a;
+        	float b;
+            EntityTitanPart entityTitanPart = this.head;
+            EntityTitanPart entityTitanPart2 = this.head;
+            float f6 = this.isBaby() ? 6.0f : 8.0f;
+            entityTitanPart2.width = f6;
+            entityTitanPart.height = f6;
+            this.body.height = this.isBaby() ? 6.0f : 12.0f;
+            this.body.width = this.isBaby() ? 3.5f : 7.0f;
+            EntityTitanPart entityTitanPart3 = this.leftLeg;
+            EntityTitanPart entityTitanPart4 = this.rightLeg;
+            float f7 = this.isBaby() ? 6.0f : 12.0f;
+            entityTitanPart4.height = f7;
+            entityTitanPart3.height = f7;
+            EntityTitanPart entityTitanPart5 = this.leftLeg;
+            EntityTitanPart entityTitanPart6 = this.rightLeg;
+            float f8 = this.isBaby() ? 2.0f : 4.0f;
+            entityTitanPart6.width = f8;
+            entityTitanPart5.width = f8;
+            EntityTitanPart entityTitanPart7 = this.rightArm;
+            EntityTitanPart entityTitanPart8 = this.leftArm;
+            EntityTitanPart entityTitanPart9 = this.rightArm;
+            EntityTitanPart entityTitanPart10 = this.leftArm;
+            if (this.isBaby()) {
+                a = 2.0f;
+                b = 2.0f;
+            } else {
+                a = 4.0f;
+                b = 4.0f;
+            }
+            entityTitanPart10.height = a;
+            entityTitanPart9.height = a;
+            entityTitanPart8.width = a;
+            entityTitanPart7.width = b;
+            this.head.moveTo(this.getX(), (this.isBaby() ? 12.0d : 24.0d) + this.getY(), this.getZ(), 0.0f, 0.0f);
+            this.body.moveTo(this.getX(), (this.isBaby() ? 6.0d : 12.0d) + this.getY(), this.getZ(), 0.0f, 0.0f);
+            this.rightArm.moveTo(((this.isBaby() ? 3.0d : 6.0d) * f3) + this.getX(), (this.isBaby() ? 10.0d : 20.0d) + this.getY(), ((this.isBaby() ? 3.0d : 6.0d) * f2) + this.getZ(), 0.0f, 0.0f);
+            this.leftArm.moveTo(this.getX() - ((this.isBaby() ? 3.0d : 6.0d) * f3), (this.isBaby() ? 10.0d : 20.0d) + this.getY(), this.getZ() - ((this.isBaby() ? 3.0d : 6.0d) * f2), 0.0f, 0.0f);
+            this.rightLeg.moveTo(((this.isBaby() ? 1.0d : 2.0d) * f3) + this.getX(), this.getY(), ((this.isBaby() ? 1.0d : 2.0d) * f2) + this.getZ(), 0.0f, 0.0f);
+            this.leftLeg.moveTo(this.getX() - ((this.isBaby() ? 1.0d : 2.0d) * f3), this.getY(), this.getZ() - ((this.isBaby() ? 1.0d : 2.0d) * f2), 0.0f, 0.0f);
 			
 			
-            this.rightArm.moveTo(this.getX() + f3 * (this.isBaby() ? 3.0 : 6.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() + f2 * (this.isBaby() ? 3.0 : 6.0), 0.0f, 0.0f);
-            this.leftArm.moveTo(this.getX() - f3 * (this.isBaby() ? 3.0 : 6.0), this.getY() + (this.isBaby() ? 10.0 : 20.0), this.getZ() - f2 * (this.isBaby() ? 3.0 : 6.0), 0.0f, 0.0f);
-            this.rightFore.moveTo(this.rightArm.getX() + f3 * (this.isBaby() ? 1.0 : 1.0), this.rightArm.getY(), this.rightArm.getZ() + f2 * (this.isBaby() ? 3.0 : 12.0), 0.0f, 0.0f);
-            this.leftFore.moveTo(this.leftArm.getX() - f3 * (this.isBaby() ? 1.0 : 1.0), this.leftArm.getY(), this.leftArm.getZ() + f2 * (this.isBaby() ? 3.0 : 12.0), 0.0f, 0.0f);
-            
-			this.rightLeg.moveTo(this.getX() + f3 * (this.isBaby() ? 1.0 : 2.0), this.getY() + (this.isBaby() ? 3.0 : 6.0), this.getZ() + f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
-            this.leftLeg.moveTo(this.getX() - f3 * (this.isBaby() ? 1.0 : 2.0), this.getY() + (this.isBaby() ? 3.0 : 6.0), this.getZ() - f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
-            this.rightCalf.moveTo(this.getX() + f3 * (this.isBaby() ? 1.0 : 2.0), this.getY(), this.getZ() + f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
-            this.leftCalf.moveTo(this.getX() - f3 * (this.isBaby() ? 1.0 : 2.0), this.getY(), this.getZ() - f2 * (this.isBaby() ? 1.0 : 2.0), 0.0f, 0.0f);
-			*/
-			
-			this.body.moveTo(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
-            this.middleBody.moveTo(this.body.getX(), this.body.getY(), this.body.getZ(), 0.0f, 0.0f);
-            this.topBody.moveTo(this.middleBody.getX(), this.middleBody.getY(), this.middleBody.getZ(), 0.0f, 0.0f);
-			this.head.moveTo(this.topBody.getX(), this.topBody.getY(), this.topBody.getZ(), 0.0f, 0.0f);
-            
-
-            this.rightArm.moveTo(this.topBody.getX(), this.topBody.getY(), this.topBody.getZ(), 0.0f, 0.0f);
-            this.leftArm.moveTo(this.topBody.getX(), this.topBody.getY(), this.topBody.getZ(), 0.0f, 0.0f);
-            this.rightFore.moveTo(this.rightArm.getX(), this.rightArm.getY(), this.rightArm.getZ(), 0.0f, 0.0f);
-            this.leftFore.moveTo(this.leftArm.getX(), this.leftArm.getY(), this.leftArm.getZ(), 0.0f, 0.0f);
-
-			this.rightLeg.moveTo(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
-            this.leftLeg.moveTo(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
-            this.rightCalf.moveTo(this.rightLeg.getX(), this.rightLeg.getY(), this.rightLeg.getZ(), 0.0f, 0.0f);
-            this.leftCalf.moveTo(this.leftLeg.getX(), this.leftLeg.getY(), this.leftLeg.getZ(), 0.0f, 0.0f);
-			
-			this.head.update();
-			this.body.update();
-			this.middleBody.update();
-			this.topBody.update();
-			this.leftArm.update();
-			this.leftFore.update();
-			this.rightArm.update();
-			this.rightFore.update();
-			this.leftLeg.update();
-			this.leftCalf.update();
-			this.rightLeg.update();
-			this.rightCalf.update();
             if (this.isAlive() && !this.isStunned) {
                 this.collideWithEntities(this.head, this.level.getEntities(this, this.head.getBoundingBox().inflate(1.0, 0.0, 1.0)));
                 this.collideWithEntities(this.body, this.level.getEntities(this, this.body.getBoundingBox().inflate(1.0, 0.0, 1.0)));
