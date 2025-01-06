@@ -492,10 +492,4 @@ public class EntityIronGolemTitan extends EntityTitan implements IAnimatedEntity
             this.removeAfterChangingDimensions();
         }
     }
-
-    //Fuck u stupid collision push
-    @Override
-    public boolean updateFluidHeightAndDoFluidPushing(ITag<Fluid> p_210500_1_, double p_210500_2_) {
-        return false;
-    }
 }

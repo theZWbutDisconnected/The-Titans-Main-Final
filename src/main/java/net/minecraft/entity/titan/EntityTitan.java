@@ -1605,6 +1605,13 @@ public abstract class EntityTitan
         return vector3d;
     }
 
+	
+	//Fuck u stupid collision pussy
+    @Override
+    public boolean updateFluidHeightAndDoFluidPushing(ITag<Fluid> p_210500_1_, double p_210500_2_) {
+	    return false;
+    }
+	
     @Override
     public EntitySize getDimensions(Pose poseIn) {
         return entitySize;
