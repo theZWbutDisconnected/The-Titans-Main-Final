@@ -83,7 +83,6 @@ public class EntitySkeletonTitan extends EntityTitan implements IEntityMultiPart
         }
         this.targetSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntityIronGolemTitan.class, 0, false));
         this.targetSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntitySnowGolemTitan.class, 0, false));
-        this.targetSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntityZombieTitan.class, 0, false));
     }
 	
 	public EntitySkeletonTitan(EntityType<? extends EntityTitan> type, World worldIn, boolean nether_effect) {
@@ -188,7 +187,7 @@ public class EntitySkeletonTitan extends EntityTitan implements IEntityMultiPart
     }
 
     public static AttributeModifierMap.MutableAttribute applyEntityAttributes() {
-        return EntityTitan.createMobAttributes()
+        return EntityTitan.applyEntityAttributes()
                 .add(Attributes.MOVEMENT_SPEED, 0.2)
                 .add(Attributes.ATTACK_DAMAGE, 140.0)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
