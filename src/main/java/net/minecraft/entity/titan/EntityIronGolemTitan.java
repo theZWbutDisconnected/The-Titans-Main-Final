@@ -1,10 +1,17 @@
 package net.minecraft.entity.titan;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Lists;
+import android.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.*;
+import net.minecraft.entity.CreatureEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntitySize;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
@@ -13,16 +20,23 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.titan.ai.EntityAINearestTargetTitan;
-import net.minecraft.entity.titan.animation.ultimairongolemtitan.*;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanAntiTitanAttack;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanAttack1;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanAttack2;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanAttack3;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanAttack4;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanDeath;
+import net.minecraft.entity.titan.animation.ultimairongolemtitan.AnimationIronGolemTitanRangedAttack;
 import net.minecraft.entity.titanminion.EntityIronGolemFixed;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.tags.ITag;
 import net.minecraft.theTitans.DamageSourceExtra;
-import net.minecraft.theTitans.TheTitans;
 import net.minecraft.theTitans.TitanItems;
 import net.minecraft.theTitans.TitanSounds;
 import net.minecraft.theTitans.configs.TitanConfig;
@@ -34,14 +48,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import thehippomaster.AnimationAPI.AnimationAPI;
 import thehippomaster.AnimationAPI.IAnimatedEntity;
-
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EntityIronGolemTitan extends EntityTitan implements IAnimatedEntity {
     public static final DataParameter<Byte> t16 = EntityDataManager.defineId(EntityIronGolemTitan.class, DataSerializers.BYTE);
@@ -480,5 +488,11 @@ public class EntityIronGolemTitan extends EntityTitan implements IAnimatedEntity
         if (this.getInvulTime() >= this.getThreashHold()) {
             this.removeAfterChangingDimensions();
         }
+    }
+
+    //Fuck u stupid collision push
+    @Override
+    public boolean updateFluidHeightAndDoFluidPushing(ITag<Fluid> p_210500_1_, double p_210500_2_) {
+        return false;
     }
 }
