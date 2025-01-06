@@ -63,6 +63,8 @@ import net.minecraft.world.*;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.tags.ITag;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeEventFactory;
@@ -462,6 +464,10 @@ public abstract class EntityTitan
         this.setInvulTime(tagCompund.getInt("Invul"));
         this.setExtraPower(tagCompund.getInt("ExtraPower"));
         this.setWaiting(tagCompund.getBoolean("Waiting"));
+		if (this instanceof IAnimatedEntity) {
+			((IAnimatedEntity)this).setAnimID(tagCompund.getInt("AnimationID"));
+			((IAnimatedEntity)this).setAnimTick(tagCompund.getInt("AnimationTick"));
+		}
     }
 
     @Override
@@ -470,6 +476,10 @@ public abstract class EntityTitan
         tagCompound.putInt("Invul", this.getInvulTime());
         tagCompound.putInt("ExtraPower", this.getExtraPower());
         tagCompound.putBoolean("Waiting", this.getWaiting());
+		if (this instanceof IAnimatedEntity) {
+			tagCompound.putInt("AnimationID", ((IAnimatedEntity)this).getAnimID());
+			tagCompound.putInt("AnimationTick", ((IAnimatedEntity)this).getAnimTick());
+		}
     }
 
     public int getMinionCap() {
