@@ -15,7 +15,10 @@ import net.minecraft.util.math.vector.Matrix3f;
 import net.minecraft.util.math.vector.Matrix4f;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class RenderGrowthSerum extends EntityRenderer<EntityGrowthSerum> {
     private static RenderType RENDER_TYPE;
 	
@@ -30,6 +33,7 @@ public class RenderGrowthSerum extends EntityRenderer<EntityGrowthSerum> {
 	
 	public void render(final EntityGrowthSerum fireball, float p_225623_2_, float p_225623_3_, MatrixStack p_225623_4_, IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
         RENDER_TYPE = RenderType.entityCutoutNoCull(this.getTextureLocation(fireball));
+		TheTitans.log(RENDER_TYPE);
         p_225623_4_.pushPose();
         p_225623_4_.scale(1.0F, 1.0F, 1.0F);
         p_225623_4_.mulPose(this.entityRenderDispatcher.cameraOrientation());

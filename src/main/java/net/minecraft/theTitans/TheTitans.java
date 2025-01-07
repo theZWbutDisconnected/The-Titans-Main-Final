@@ -39,7 +39,7 @@ public class TheTitans {
         genericTitanWhiteTexture64x64 = new ResourceLocation("thetitans", "textures/entities/64x64_disintigration.png");
         titansTab = new ItemGroup("thetitans") {
             public ItemStack makeIcon() {
-                return new ItemStack(TitanItems.ultimaBlade);
+                return new ItemStack(TitanItems.growthSerum);
             }
         };
         godly = Rarity.create("GODLY", TextFormatting.DARK_PURPLE);
