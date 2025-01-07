@@ -31,6 +31,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.entity.titan.EntityGrowthSerum;
 import net.minecraft.theTitans.RenderTheTitans;
+import net.minecraft.item.BowItem;
 
 public class ItemGrowthSerum extends Item
 {
@@ -45,7 +46,10 @@ public class ItemGrowthSerum extends Item
 		    itemstack.grow(-1);
 		p_77659_2_.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (p_77659_2_.getRandom().nextFloat() * 0.4F + 0.8F));
 		if (!p_77659_1_.isClientSide) {
-            p_77659_1_.addFreshEntity(new EntityGrowthSerum(RenderTheTitans.growthSerum, p_77659_1_));
+			EntityGrowthSerum serum = new EntityGrowthSerum(RenderTheTitans.growthSerum, p_77659_1_);
+			serum.setPos(p_77659_2_.getX(), p_77659_2_.getY(), p_77659_2_.getZ());
+			serum.shootFromRotation(p_77659_2_, p_77659_2_.xRot, p_77659_2_.yRot, 0.0F, 3.0F, 1.0F);
+            p_77659_1_.addFreshEntity(serum);
         }
 		return ActionResult.fail(itemstack);
 	}
