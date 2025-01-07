@@ -13,7 +13,16 @@ import net.minecraft.util.SoundEvents;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.theTitans.DamageSourceExtra;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.entity.IRendersAsItem;
+import net.minecraft.item.ItemStack;
 
+@OnlyIn(
+	value = Dist.CLIENT,
+	_interface = IRendersAsItem.class
+)
 public class EntityGrowthSerum extends ProjectileItemEntity
 {
 	public EntityGrowthSerum(EntityType<EntityGrowthSerum> type, World level) {
@@ -24,6 +33,11 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 		return TitanItems.growthSerum;
 	}
 
+	@OnlyIn(Dist.CLIENT)
+	public ItemStack getItem() {
+		return new ItemStack(this.getDefaultItem());
+	}
+	
 	@Override
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		if (!this.level.isClientSide()) {
