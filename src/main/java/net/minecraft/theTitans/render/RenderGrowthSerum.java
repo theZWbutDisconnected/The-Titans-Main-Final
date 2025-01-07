@@ -22,7 +22,6 @@ import net.minecraft.client.renderer.model.ItemCameraTransforms;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderGrowthSerum extends EntityRenderer<EntityGrowthSerum> {
-    private static RenderType RENDER_TYPE;
 	private static ItemRenderer itemRenderer;
 	private static float scale;
 	
