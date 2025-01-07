@@ -15,6 +15,8 @@ public class RenderTheTitans {
     public static Attribute MAX_HEALTH;
     @EventRegistry(priority = -100, identifier = "generic.attack_damage")
     public static Attribute ATTACK_DAMAGE;
+    @EventRegistry(priority = -5, identifier = "growth_serum")
+    public static EntityType<EntityGrowthSerum> growthSerum;
     @EventRegistry(priority = -4, identifier = "fireball")
     public static EntityType<EntityTitanFireball> titanFireball;
     @EventRegistry(priority = -4, identifier = "proto_ball")
@@ -47,6 +49,13 @@ public class RenderTheTitans {
     static {
         MAX_HEALTH = new RangedAttribute("attribute.name.generic.max_health", 20.0D, 1.0D, Double.MAX_VALUE).setSyncable(true);
         ATTACK_DAMAGE = new RangedAttribute("attribute.name.generic.attack_damage", 2.0D, 1.0D, Double.MAX_VALUE).setSyncable(true);
+		growthSerum = EntityType.Builder
+			    .<EntityGrowthSerum>of(EntityGrowthSerum::new, EntityClassification.MISC)
+		        .fireImmune()
+		    	.sized(0.5F, 0.5F)
+			    .clientTrackingRange(4)
+			    .updateInterval(20)
+			    .build("growth_serum");
         titanFireball = EntityType.Builder
                 .<EntityTitanFireball>of(EntityTitanFireball::new, EntityClassification.MISC)
                 .fireImmune()

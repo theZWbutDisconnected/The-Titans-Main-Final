@@ -408,7 +408,7 @@ public abstract class EntityTitan
     }
 
     public void func_82206_m() {
-        this.setInvulTime(this.getTitanStatus() == EnumTitanStatus.GOD ? 7100 : (this.getTitanStatus() == EnumTitanStatus.GREATER ? 1310 : 850));
+        this.setInvulTime(this.getTitanStatus() == EnumTitanStatus.GOD ? 7100 : (this.getTitanStatus() == EnumTitanStatus.GREATER ? 1310 : !(this instanceof EntitySnowGolemTitan) && !(this instanceof EntitySlimeTitan) ? 850 : 150));
         this.setWaiting(false);
     }
 

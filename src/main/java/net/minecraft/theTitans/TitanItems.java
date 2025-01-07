@@ -453,6 +453,7 @@ public class TitanItems {
         harcadiumChestplate = new ItemHarcadiumChestplate(Material.Harcadium);
         harcadiumLeggings = new ItemHarcadiumLeggings(Material.Harcadium);
         harcadiumBoots = new ItemHarcadiumBoots(Material.Harcadium);
+		growthSerum = new ItemGrowthSerum();
         eggSlimeTitan = new ItemTitanEgg(RenderTheTitans.slimeTitan);
         eggZombieTitan = new ItemTitanEgg(RenderTheTitans.zombieTitan);
         eggSkeletonTitan = new ItemTitanEgg(RenderTheTitans.skeletonTitan);

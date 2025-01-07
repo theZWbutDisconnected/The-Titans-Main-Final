@@ -23,6 +23,7 @@ import java.util.Objects;
 public class ClientProxy {
     @SubscribeEvent
     public static void renderEventHandler(FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, RenderGrowthSerum::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFireball, RenderTitanFireball::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.protoBall, RenderProtoBall::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFallingBlock, FallingBlockRenderer::new);
