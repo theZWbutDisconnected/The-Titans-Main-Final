@@ -30,6 +30,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.entity.titan.EntityGrowthSerum;
+import net.minecraft.theTitans.RenderTheTitans;
 
 public class ItemGrowthSerum extends Item
 {
@@ -44,7 +45,7 @@ public class ItemGrowthSerum extends Item
 		    itemstack.grow(-1);
 		p_77659_2_.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (p_77659_2_.getRandom().nextFloat() * 0.4F + 0.8F));
 		if (!p_77659_1_.isClientSide) {
-            p_77659_1_.addFreshEntity(new EntityGrowthSerum(var2, p_77659_1_));
+            p_77659_1_.addFreshEntity(new EntityGrowthSerum(RenderTheTitans.growthSerum, p_77659_1_));
         }
 		return ActionResult.fail(itemstack);
 	}
