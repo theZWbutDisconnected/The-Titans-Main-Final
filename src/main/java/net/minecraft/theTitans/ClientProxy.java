@@ -24,7 +24,7 @@ import net.minecraft.client.Minecraft;
 public class ClientProxy {
     @SubscribeEvent
     public static void renderEventHandler(FMLClientSetupEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, (m) -> new SpriteRenderer<>(this, Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, (m) -> new SpriteRenderer<>(Minecraft.getInstance().getEntityRenderDispatcher(), Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFireball, RenderTitanFireball::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.protoBall, RenderProtoBall::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFallingBlock, FallingBlockRenderer::new);
