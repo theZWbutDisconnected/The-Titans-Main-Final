@@ -36,7 +36,7 @@ import net.minecraft.item.BowItem;
 public class ItemGrowthSerum extends Item
 {
 	public ItemGrowthSerum() {
-		super(new Properties().tab(TheTitans.titansTab));
+		super(new Properties().tab(TheTitans.titansTab).stacksTo(16));
 	}
 
 	@Override
