@@ -6,6 +6,7 @@ import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.theTitans.TitanItems;
+import net.minecraft.theTitans.TheTitans;
 
 public class EntityGrowthSerum extends ProjectileItemEntity
 {
@@ -15,6 +16,12 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 
 	protected Item getDefaultItem() {
 		return TitanItems.growthSerum;
+	}
+
+	@Override
+	public void tick() {
+		TheTitans.log(this.position());
+		super.tick();
 	}
 
 	@Override
