@@ -18,12 +18,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import java.util.Map;
 import java.util.Objects;
+import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber(modid = TheTitans.modid, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientProxy {
     @SubscribeEvent
     public static void renderEventHandler(FMLClientSetupEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, RenderGrowthSerum::new);
+        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, (m) -> new RenderGrowthSerum(m, Minecraft.getInstance().getItemRenderer(), 1.0f));
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFireball, RenderTitanFireball::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.protoBall, RenderProtoBall::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFallingBlock, FallingBlockRenderer::new);

@@ -19,12 +19,6 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 	}
 
 	@Override
-	public void tick() {
-		TheTitans.log(this.position());
-		super.tick();
-	}
-
-	@Override
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		
 	}
