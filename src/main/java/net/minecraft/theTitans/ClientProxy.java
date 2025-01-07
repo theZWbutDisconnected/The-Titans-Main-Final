@@ -40,7 +40,7 @@ public class ClientProxy {
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.ghastTitan, RenderGhastTitan::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.ironGolemTitan, RenderUltimaIronGolemTitan::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.witherzilla, RenderWitherzilla::new);
-        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.giantZombie, (manager) -> new GiantZombieRenderer(manager, 6.0F));
+        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.giantZombie, (m) -> new GiantZombieRenderer(m, 6.0F));
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.zombieMinion, RenderZombieMinion::new);
     }
 
