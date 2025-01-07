@@ -29,7 +29,7 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 		if (!this.level.isClientSide()) {
 			if (p_213868_1_.getEntity() instanceof LivingEntity) {
 				((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
-                ((LivingEntity)p_213868_1_.getEntity()).hurt((DamageSourceExtra.wip, 2000.0F);
+                ((LivingEntity)p_213868_1_.getEntity()).hurt(DamageSourceExtra.wip, 2000.0F);
                 this.spawnAtLocation(TitanItems.growthSerum, 1);
                 this.playSound(SoundEvents.PLAYER_HURT, 2.0F, 2.0F);
 			}
