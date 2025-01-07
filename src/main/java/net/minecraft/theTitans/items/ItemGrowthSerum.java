@@ -42,15 +42,15 @@ public class ItemGrowthSerum extends Item
 	@Override
 	public ActionResult<ItemStack> use(World p_77659_1_, PlayerEntity p_77659_2_, Hand p_77659_3_) {
 		ItemStack itemstack = p_77659_2_.getItemInHand(p_77659_3_);
-		if (!p_77659_2_.abilities.invulnerable)
+		if (!p_77659_2_.abilities.instabuild)
 		    itemstack.grow(-1);
 		p_77659_2_.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (p_77659_2_.getRandom().nextFloat() * 0.4F + 0.8F));
 		
-		EntityGrowthSerum serum = new EntityGrowthSerum(RenderTheTitans.growthSerum, p_77659_1_);
-		serum.setPos(p_77659_2_.getX(), p_77659_2_.getY(), p_77659_2_.getZ());
+		EntityGrowthSerum serum = new EntityGrowthSerum(p_77659_1_, p_77659_2_);
+		serum.setItem(itemstack);
 		serum.shootFromRotation(p_77659_2_, p_77659_2_.xRot, p_77659_2_.yRot, 0.0F, 3.0F, 1.0F);
         p_77659_1_.addFreshEntity(serum);
         
-		return ActionResult.fail(itemstack);
+		return ActionResult.sidedSuccess(itemstack, p_77659_1_.isClientSide());
 	}
 }
