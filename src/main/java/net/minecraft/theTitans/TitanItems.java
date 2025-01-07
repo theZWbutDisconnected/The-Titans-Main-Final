@@ -546,10 +546,10 @@ public class TitanItems {
         Harcadium("Harcadium", 10000, new int[]{9, 15, 12, 8}, 30, 4.0f, 0.2f, () -> {
             return Ingredient.of(TitanItems.harcadium);
         }),
-        Absence("absence", 100000, new int[]{11, 17, 13, 9}, 50, 6.0f, 0.5f, () -> {
+        Absence("Absence", 100000, new int[]{11, 17, 13, 9}, 50, 6.0f, 0.5f, () -> {
             return Ingredient.of(TitanItems.voidItem);
         }),
-        Adminium("adminium", 100000000, new int[]{100000, 100000, 100000, 100000}, 60, 10.0f, 1.0f, () -> {
+        Adminium("Adminium", 100000000, new int[]{100000, 100000, 100000, 100000}, 60, 10.0f, 1.0f, () -> {
             return Ingredient.of(Items.BEDROCK);
         });
 

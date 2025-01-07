@@ -18,6 +18,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.entity.projectile.SnowballEntity;
 
 @OnlyIn(
 	value = Dist.CLIENT,
@@ -26,16 +27,20 @@ import net.minecraft.item.ItemStack;
 public class EntityGrowthSerum extends ProjectileItemEntity
 {
 	public EntityGrowthSerum(EntityType<EntityGrowthSerum> type, World level) {
-		super(type, level);
+		super(EntityType.SNOWBALL, level);
 	}
 
+
+	public EntityGrowthSerum(World p_i1774_1_, LivingEntity p_i1774_2_) {
+	    super(EntityType.SNOWBALL, p_i1774_2_, p_i1774_1_);
+	}
+
+	public EntityGrowthSerum(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_) {
+	    super(EntityType.SNOWBALL, p_i1775_2_, p_i1775_4_, p_i1775_6_, p_i1775_1_);
+	}
+	
 	protected Item getDefaultItem() {
 		return TitanItems.growthSerum;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public ItemStack getItem() {
-		return new ItemStack(this.getDefaultItem());
 	}
 	
 	@Override
