@@ -20,12 +20,14 @@ import java.util.Map;
 import java.util.Objects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
 
 @Mod.EventBusSubscriber(modid = TheTitans.modid, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientProxy {
     @SubscribeEvent
     public static void renderEventHandler(FMLClientSetupEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, (m) -> new SpriteRenderer<>(Minecraft.getInstance().getEntityRenderDispatcher(), Minecraft.getInstance().getItemRenderer()));
+		EntityRendererManager manager = Minecraft.getInstance().getEntityRenderDispatcher();
+        Minecraft.getInstance().getEntityRenderDispatcher().register(RenderTheTitans.growthSerum, new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFireball, RenderTitanFireball::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.protoBall, RenderProtoBall::new);
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFallingBlock, FallingBlockRenderer::new);
