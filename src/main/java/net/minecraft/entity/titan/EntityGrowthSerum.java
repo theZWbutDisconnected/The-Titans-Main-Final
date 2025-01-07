@@ -29,7 +29,6 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 {
 	public EntityGrowthSerum(EntityType<EntityGrowthSerum> type, World level) {
 		super(type, level);
-		EntityType.SNOWBALL
 	}
 
 
