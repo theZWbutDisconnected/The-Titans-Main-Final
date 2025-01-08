@@ -72,31 +72,35 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		if (!this.level.isClientSide()) {
 			if (p_213868_1_.getEntity() instanceof LivingEntity) {
-				if (titanMapping.get(p_213868_1_.getEntity().getClass()) != null) {
-					EntityTitan willBeTitan = null;
-					try {
-					    willBeTitan = titanMapping.get(p_213868_1_.getClass()).newInstance();
-					    willBeTitan.level = this.level;
-						willBeTitan.moveTo(p_213868_1_.getEntity().getX(), p_213868_1_.getEntity().getY(), p_213868_1_.getEntity().getZ(), p_213868_1_.getEntity().yRot, 0.0F);
-					    this.level.addFreshEntity(willBeTitan);
-						willBeTitan.playSound(SoundEvents.PORTAL_TRAVEL, 10000.0F, 1.0F);
-						willBeTitan.finalizeSpawn(this.level.getServer().getLevel(this.level.dimension()), level.getCurrentDifficultyAt(this.blockPosition()), SpawnReason.SPAWNER, null, null);
-						willBeTitan.playSound(TitanSounds.titanBirth, 1000.0F, 1.0F);
-						willBeTitan.func_82206_m();
-						if (p_213868_1_.getEntity() instanceof ZombieEntity) {
-						    ((EntityZombieTitan)willBeTitan).setBaby(((ZombieEntity)p_213868_1_.getEntity()).isBaby());
-							if (p_213868_1_.getEntity() instanceof ZombieVillagerEntity)
-						        ((EntityZombieTitan)willBeTitan).setVillager(true);
-						}
-						p_213868_1_.getEntity().remove(false);
-					} catch (Exception e){
-					    TheTitans.log(e.getMessage());
-						e.printStackTrace();
-					}
+			    EntityTitan willBeTitan = null;
+				if (p_213868_1_.getEntity() instanceof ZombieEntity) 
+					willBeTitan = new EntityZombieTitan(this.level);
+				else if (p_213868_1_.getEntity() instanceof SkeletonEntity) 
+					willBeTitan = new EntitySkeletonTitan(RenderTheTitans.skeletonTitan, this.level);
+				else if (p_213868_1_.getEntity() instanceof GhastEntity) 
+					willBeTitan = new EntityGhastTitan(RenderTheTitans.ghastTitan, this.level);
+				else if (p_213868_1_.getEntity() instanceof IronGolemEntity) 
+					willBeTitan = new EntityIronGolemTitan(RenderTheTitans.ironGolemTitan, this.level);
+				else if (p_213868_1_.getEntity() instanceof SlimeEntity) 
+					willBeTitan = new EntitySlimeTitan(RenderTheTitans.slimeTitan, this.level);
+					
+				if (willBeTitan != null) {
+					willBeTitan.moveTo(p_213868_1_.getEntity().getX(), p_213868_1_.getEntity().getY(), p_213868_1_.getEntity().getZ(), p_213868_1_.getEntity().yRot, 0.0F);
+					this.level.addFreshEntity(willBeTitan);
+				    willBeTitan.playSound(SoundEvents.PORTAL_TRAVEL, 10000.0F, 1.0F);
+				    willBeTitan.finalizeSpawn(this.level.getServer().getLevel(this.level.dimension()), level.getCurrentDifficultyAt(this.blockPosition()), SpawnReason.SPAWNER, null, null);
+			        willBeTitan.playSound(TitanSounds.titanBirth, 1000.0F, 1.0F);
+				    willBeTitan.func_82206_m();
+				    if (p_213868_1_.getEntity() instanceof ZombieEntity) {
+				    	((EntityZombieTitan)willBeTitan).setBaby(((ZombieEntity)p_213868_1_.getEntity()).isBaby());
+					    if (p_213868_1_.getEntity() instanceof ZombieVillagerEntity)
+						    ((EntityZombieTitan)willBeTitan).setVillager(true);
+			        }
 				} else {
 				    ((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
                     ((LivingEntity)p_213868_1_.getEntity()).hurt(DamageSourceExtra.wip, 2000.0F);
 				}
+				p_213868_1_.getEntity().remove(false);
                 this.spawnAtLocation(TitanItems.growthSerum, 1);
                 this.playSound(SoundEvents.PLAYER_HURT, 2.0F, 2.0F);
 			}
