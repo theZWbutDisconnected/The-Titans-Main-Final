@@ -72,8 +72,7 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		if (!this.level.isClientSide()) {
 			if (p_213868_1_.getEntity() instanceof LivingEntity) {
-				TheTitans.log(titanMapping.containsKey(p_213868_1_.getEntity().getClass()));
-				if (titanMapping.containsKey(p_213868_1_.getEntity().getClass())) {
+				if (titanMapping.get(p_213868_1_.getEntity().getClass()) != null) {
 					EntityTitan willBeTitan = null;
 					try {
 					    willBeTitan = titanMapping.get(p_213868_1_.getClass()).newInstance();
