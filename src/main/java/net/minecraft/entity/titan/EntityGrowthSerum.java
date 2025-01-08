@@ -72,10 +72,11 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		if (!this.level.isClientSide()) {
 			if (p_213868_1_.getEntity() instanceof LivingEntity) {
+				TheTitans.log(titanMapping.containsKey(p_213868_1_.getEntity().getClass()));
 				if (titanMapping.containsKey(p_213868_1_.getEntity().getClass())) {
 					EntityTitan willBeTitan = null;
 					try {
-					    willBeTitan = titanMapping.get(p_213868_1_.getClass()).new(this.level);
+					    willBeTitan = titanMapping.get(p_213868_1_.getClass()).newInstance();
 					    willBeTitan.level = this.level;
 						willBeTitan.moveTo(p_213868_1_.getEntity().getX(), p_213868_1_.getEntity().getY(), p_213868_1_.getEntity().getZ(), p_213868_1_.getEntity().yRot, 0.0F);
 					    this.level.addFreshEntity(willBeTitan);
@@ -89,7 +90,10 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 						        ((EntityZombieTitan)willBeTitan).setVillager(true);
 						}
 						p_213868_1_.getEntity().remove(false);
-					} catch (RuntimeException e){}
+					} catch (Exception e){
+					    TheTitans.log(e.getMessage());
+						e.printStackTrace();
+					}
 				} else {
 				    ((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
                     ((LivingEntity)p_213868_1_.getEntity()).hurt(DamageSourceExtra.wip, 2000.0F);
