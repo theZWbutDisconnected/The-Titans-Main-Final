@@ -72,7 +72,7 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		if (!this.level.isClientSide()) {
 			if (p_213868_1_.getEntity() instanceof LivingEntity) {
-				if (titanMapping.containsKey(p_213868_1_.getClass())) {
+				if (titanMapping.containsKey(p_213868_1_.getEntity().getClass())) {
 					EntityTitan willBeTitan = null;
 					try {
 					    willBeTitan = titanMapping.get(p_213868_1_.getClass()).newInstance();
@@ -90,9 +90,10 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 						}
 						p_213868_1_.getEntity().remove(false);
 					} catch (IllegalAccessException e){}catch( InstantiationException e) {}
+				} else {
+				    ((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
+                    ((LivingEntity)p_213868_1_.getEntity()).hurt(DamageSourceExtra.wip, 2000.0F);
 				}
-				((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
-                ((LivingEntity)p_213868_1_.getEntity()).hurt(DamageSourceExtra.wip, 2000.0F);
                 this.spawnAtLocation(TitanItems.growthSerum, 1);
                 this.playSound(SoundEvents.PLAYER_HURT, 2.0F, 2.0F);
 			}
