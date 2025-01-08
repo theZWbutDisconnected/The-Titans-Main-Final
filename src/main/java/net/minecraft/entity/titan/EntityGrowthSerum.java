@@ -88,7 +88,7 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 							if (p_213868_1_.getEntity() instanceof ZombieVillagerEntity)
 						        ((EntityZombieTitan)willBeTitan).setVillager(true);
 						}
-						p_213868_1_.getEntity().removeAfterChangingDimensions();
+						p_213868_1_.getEntity().remove(false);
 					} catch (IllegalAccessException e){}catch( InstantiationException e) {}
 				}
 				((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
