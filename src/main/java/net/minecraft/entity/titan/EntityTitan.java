@@ -123,6 +123,10 @@ public abstract class EntityTitan
         this.goalSelector.addGoal(10, new EntityAITitanLookIdle(this));
     }
 
+	public EntityTitan(World worldIn) {
+		this(null, worldIn);
+	}
+
     public static boolean isOreSpawnBossToExempt(final Entity entity) {
         return false;
     }

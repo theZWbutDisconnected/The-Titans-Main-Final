@@ -20,6 +20,21 @@ import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.theTitans.RenderTheTitans;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
+import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.monster.SkeletonEntity;
+import net.minecraft.entity.monster.GhastEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.monster.SlimeEntity;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.client.Minecraft;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.IServerWorld;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.theTitans.TitanSounds;
+import net.minecraft.entity.monster.ZombieVillagerEntity;
 
 @OnlyIn(
 	value = Dist.CLIENT,
@@ -27,8 +42,17 @@ import net.minecraft.theTitans.RenderTheTitans;
 )
 public class EntityGrowthSerum extends ProjectileItemEntity
 {
+	public static final Map<Class<? extends LivingEntity>, Class<? extends EntityTitan>> titanMapping = new HashMap<>();
+	
 	public EntityGrowthSerum(EntityType<EntityGrowthSerum> type, World level) {
 		super(type, level);
+		
+		titanMapping.put(ZombieEntity.class, EntityZombieTitan.class);
+		titanMapping.put(SkeletonEntity.class, EntitySkeletonTitan.class);
+		titanMapping.put(GhastEntity.class, EntityGhastTitan.class);
+		titanMapping.put(IronGolemEntity.class, EntityIronGolemTitan.class);
+		titanMapping.put(SlimeEntity.class, EntitySlimeTitan.class);
+		// titanMapping.put(WitherEntity.class, EntityWitherzilla.class);
 	}
 
 
@@ -48,6 +72,25 @@ public class EntityGrowthSerum extends ProjectileItemEntity
 	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
 		if (!this.level.isClientSide()) {
 			if (p_213868_1_.getEntity() instanceof LivingEntity) {
+				if (titanMapping.containsKey(p_213868_1_.getClass())) {
+					EntityTitan willBeTitan = null;
+					try {
+					    willBeTitan = titanMapping.get(p_213868_1_.getClass()).newInstance();
+					    willBeTitan.level = this.level;
+						willBeTitan.moveTo(p_213868_1_.getEntity().getX(), p_213868_1_.getEntity().getY(), p_213868_1_.getEntity().getZ(), p_213868_1_.getEntity().yRot, 0.0F);
+						p_213868_1_.getEntity().removeAfterChangingDimensions();
+					    this.level.addFreshEntity(willBeTitan);
+						p_213868_1_.getEntity().playSound(SoundEvents.PORTAL_TRAVEL, 10000.0F, 1.0F);
+						((EntityTitan)p_213868_1_.getEntity()).finalizeSpawn(this.level.getServer().getLevel(this.level.dimension()), level.getCurrentDifficultyAt(this.blockPosition()), SpawnReason.SPAWNER, null, null);
+						p_213868_1_.getEntity().playSound(TitanSounds.titanBirth, 1000.0F, 1.0F);
+						willBeTitan.func_82206_m();
+						if (p_213868_1_.getEntity() instanceof ZombieEntity) {
+						    ((EntityZombieTitan)willBeTitan).setBaby(((ZombieEntity)p_213868_1_.getEntity()).isBaby());
+							if (p_213868_1_.getEntity() instanceof ZombieVillagerEntity)
+						        ((EntityZombieTitan)willBeTitan).setVillager(true);
+						}
+					} catch (IllegalAccessException e){}catch( InstantiationException e) {}
+				}
 				((LivingEntity)p_213868_1_.getEntity()).setSecondsOnFire(20);
                 ((LivingEntity)p_213868_1_.getEntity()).hurt(DamageSourceExtra.wip, 2000.0F);
                 this.spawnAtLocation(TitanItems.growthSerum, 1);

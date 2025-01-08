@@ -47,6 +47,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.theTitans.RenderTheTitans;
 
 public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, IEntityMultiPartTitan {
     public static final DataParameter<Boolean> t12 = EntityDataManager.defineId(EntityZombieTitan.class, DataSerializers.BOOLEAN);
@@ -76,6 +77,10 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
         this.goalSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntityIronGolemTitan.class, 0, false));
         this.goalSelector.addGoal(0, new EntityAINearestTargetTitan(this, EntitySnowGolemTitan.class, 0, false));
     }
+	
+	public EntityZombieTitan(World worldIn) {
+		this(RenderTheTitans.zombieTitan, worldIn);
+	}
 
     @Override
     protected void applyEntityAI() {
