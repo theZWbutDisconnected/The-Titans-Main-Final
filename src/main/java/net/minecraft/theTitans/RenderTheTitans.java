@@ -95,7 +95,7 @@ public class RenderTheTitans {
                 .fireImmune()
                 .build("slime_titan");
         zombieTitan = EntityType.Builder
-                .of(EntityZombieTitan::new, EntityClassification.MISC)
+                .of((type, worldIn) -> new EntityZombieTitan(type, worldIn), EntityClassification.MISC)
                 .sized(8.0f, 32.0f)
                 .fireImmune()
 			    .build("zombie_titan");
