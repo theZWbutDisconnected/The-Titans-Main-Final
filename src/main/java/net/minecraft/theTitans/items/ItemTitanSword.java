@@ -95,7 +95,7 @@ public class ItemTitanSword extends TieredItem implements IVanishable {
 
     @Override
     public void onUseTick(World p_219972_1_, LivingEntity p_219972_2_, ItemStack p_219972_3_, int p_219972_4_) {
-        Minecraft minecraft = Minecraft.getInstance();
+        /*Minecraft minecraft = Minecraft.getInstance();
         EntityRendererManager renderManager = minecraft.getEntityRenderDispatcher();
         LivingRenderer<?, ?> renderer;
         if (renderManager.getRenderer(p_219972_2_) instanceof LivingRenderer) {
@@ -111,7 +111,7 @@ public class ItemTitanSword extends TieredItem implements IVanishable {
                     model.rightArm.yRot = -0.5235988F;
                 }
             }
-        }
+        }*/
         super.onUseTick(p_219972_1_, p_219972_2_, p_219972_3_, p_219972_4_);
     }
 
@@ -129,7 +129,7 @@ public class ItemTitanSword extends TieredItem implements IVanishable {
 
     @Override
     public UseAction getUseAnimation(ItemStack p_77661_1_) {
-        return UseAction.NONE;
+        return UseAction.BLOCK;
     }
 
     @Override
