@@ -129,7 +129,7 @@ public class ItemTitanSword extends TieredItem implements IVanishable {
 
     @Override
     public UseAction getUseAnimation(ItemStack p_77661_1_) {
-        return UseAction.BLOCK;
+        return UseAction.NONE;
     }
 
     @Override
