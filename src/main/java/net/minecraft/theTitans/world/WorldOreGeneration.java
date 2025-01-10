@@ -30,6 +30,6 @@ public class WorldOreGeneration
 	}
 	
 	public static ConfiguredFeature<?,?> oreFeature(Block block, OreFeatureConfig conf, ConfiguredPlacement cpm, int size) {
-		return Registry.register(WorldGenRegistries.NOISE_GENERATOR_SETTINGS, block.getRegistryName(), Feature.ORE.configured(conf).decorated(cpm).squared().count(size));
+		return Registry.register((Registry<?>)WorldGenRegistries.NOISE_GENERATOR_SETTINGS, block.getRegistryName(), Feature.ORE.configured(conf).decorated(cpm).squared().count(size));
 	}
 }
