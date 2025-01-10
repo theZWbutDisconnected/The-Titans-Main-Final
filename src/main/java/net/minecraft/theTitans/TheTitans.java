@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import net.minecraft.theTitans.world.WorldOreGeneration;
 
 @Mod(TheTitans.modid)
 public class TheTitans {
@@ -56,6 +57,7 @@ public class TheTitans {
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new TitanBossBarGui(Minecraft.getInstance()));
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(new WorldOreGeneration()::biomeGenerate);
         Attributes.MAX_HEALTH = RenderTheTitans.MAX_HEALTH;
         Attributes.ATTACK_DAMAGE = RenderTheTitans.ATTACK_DAMAGE;
     }

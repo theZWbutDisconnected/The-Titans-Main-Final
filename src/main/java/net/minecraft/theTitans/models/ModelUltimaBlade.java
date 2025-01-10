@@ -37,13 +37,7 @@ public class ModelUltimaBlade implements IBakedModel {
 
     @Override
     public List<BakedQuad> getQuads(BlockState state, Direction side, Random rand) {
-        return this.cachedQuads.computeIfAbsent(side, (face) -> {
-			List<BakedQuad> quads = this.existingModel.getQuads(state, side, rand);
-			for (BakedQuad quad : quads)
-				quad.getDirection().rotate(new Matrix4f(new Quaternion(0.1f, 0.0f, 0.0f, 1.0f)), side);
-			
-			return quads;
-		});
+        return this.existingModel.getQuads(state, side, rand);
     }
 
     @Override
