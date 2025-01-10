@@ -12,6 +12,8 @@ import net.minecraftforge.client.model.data.IModelData;
 
 import java.util.List;
 import java.util.Random;
+import net.minecraft.util.math.vector.Matrix4f;
+import net.minecraft.util.math.vector.Quaternion;
 
 public class ModelUltimaBlade implements IBakedModel {
     private final IBakedModel existingModel;
@@ -27,7 +29,11 @@ public class ModelUltimaBlade implements IBakedModel {
 
     @Override
     public List<BakedQuad> getQuads(BlockState state, Direction side, Random rand) {
-        return this.existingModel.getQuads(state, side, rand);
+		List<BakedQuad> l = this.existingModel.getQuads(state, side, rand);
+		for (BakedQuad q : l) {
+			q.getDirection().rotate(new Matrix4f(new Quaternion(0.1f, 0.0f, 0.0f, 1.0f)), side);
+		}
+        return l;
     }
 
     @Override

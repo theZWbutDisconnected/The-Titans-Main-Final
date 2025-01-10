@@ -57,10 +57,6 @@ public class ClientProxy {
             Map<ResourceLocation, IBakedModel> modelRegistry = event.getModelRegistry();
             ModelResourceLocation location = new ModelResourceLocation(Objects.requireNonNull(TitanItems.ultimaBlade.getRegistryName()), "inventory");
             IBakedModel existingModel = modelRegistry.get(location);
-			List<BakedQuad> l = existingModel.getQuads(null, null, null);
-			for (BakedQuad q : l) {
-				q.getDirection().rotate(new Matrix4f(new Quaternion(0.05f, 0.0f, 0.0f, 1.0f)), Direction.NORTH);
-			}
             ModelUltimaBlade modelBlade = new ModelUltimaBlade(existingModel);
             event.getModelRegistry().put(location, modelBlade);
             break Label_UltimaBlade;
