@@ -77,7 +77,7 @@ public final class TitanConfigGui extends Screen {
                 }
         ));
 
-        this.optionsRowList.addBig(new SliderPercentageOption(
+        this.optionsRowList.addBig(new MinionSpawnrateOption(
                 "config.slider.ZombieTitanMinionSpawnrate",
                 1.0, 10.0,
                 1.0F,
@@ -96,7 +96,7 @@ public final class TitanConfigGui extends Screen {
                 )
         ));
 
-        this.optionsRowList.addBig(new SliderPercentageOption(
+        this.optionsRowList.addBig(new MinionSpawnrateOption(
                 "config.slider.GhastTitanMinionSpawnrate",
                 1.0, 10.0,
                 1.0F,
@@ -115,7 +115,7 @@ public final class TitanConfigGui extends Screen {
                 )
         ));
 
-        this.optionsRowList.addBig(new SliderPercentageOption(
+        this.optionsRowList.addBig(new MinionSpawnrateOption(
                 "config.slider.WitherzillaMinionSpawnrate",
                 1.0, 10.0,
                 1.0F,

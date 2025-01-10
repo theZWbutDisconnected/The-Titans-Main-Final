@@ -24,16 +24,16 @@ public class ModelUltimaBlade implements IBakedModel {
 
     @Override
     public List<BakedQuad> getQuads(BlockState state, Direction side, Random rand, IModelData extraData) {
-        throw new AssertionError("IForgeBakedModel::getQuads should never be called, only IForgeBakedModel::getQuads");
-    }
+		return getQuads(state, side, rand);
+	}
 
     @Override
     public List<BakedQuad> getQuads(BlockState state, Direction side, Random rand) {
-		List<BakedQuad> l = this.existingModel.getQuads(state, side, rand);
-		for (BakedQuad q : l) {
+		List<BakedQuad> quads = this.existingModel.getQuads(state, side, rand);
+		for (BakedQuad q : quads) {
 			q.getDirection().rotate(new Matrix4f(new Quaternion(0.1f, 0.0f, 0.0f, 1.0f)), side);
 		}
-        return l;
+        return quads;
     }
 
     @Override
