@@ -14,13 +14,21 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.math.vector.Quaternion;
+import java.util.Map;
+import com.google.common.collect.Maps;
 
 public class ModelUltimaBlade implements IBakedModel {
     private final IBakedModel existingModel;
+	private Map<Direction, List<BakedQuad>> cachedQuads = Maps.newHashMap();
 
     public ModelUltimaBlade(IBakedModel existingModel) {
         this.existingModel = existingModel;
     }
+
+	@Override
+	public IBakedModel getBakedModel() {
+		return this.existingModel;
+	}
 
     @Override
     public List<BakedQuad> getQuads(BlockState state, Direction side, Random rand, IModelData extraData) {
@@ -29,11 +37,13 @@ public class ModelUltimaBlade implements IBakedModel {
 
     @Override
     public List<BakedQuad> getQuads(BlockState state, Direction side, Random rand) {
-		List<BakedQuad> quads = this.existingModel.getQuads(state, side, rand);
-		for (BakedQuad q : quads) {
-			q.getDirection().rotate(new Matrix4f(new Quaternion(0.1f, 0.0f, 0.0f, 1.0f)), side);
-		}
-        return quads;
+        return this.cachedQuads.computeIfAbsent(side, (face) -> {
+			List<BakedQuad> quads = this.existingModel.getQuads(state, side, rand);
+			for (BakedQuad quad : quads)
+				quad.getDirection().rotate(new Matrix4f(new Quaternion(0.1f, 0.0f, 0.0f, 1.0f)), side);
+			
+			return quads;
+		});
     }
 
     @Override
