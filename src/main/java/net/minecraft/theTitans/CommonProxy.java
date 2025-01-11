@@ -48,7 +48,7 @@ public class CommonProxy
 	public static ClientProxy client;
 	
 	public CommonProxy() {
-		client = new ClientProxy();
+		client = new ClientProxy(null);
         MinecraftForge.EVENT_BUS.register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
 	}

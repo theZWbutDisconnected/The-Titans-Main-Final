@@ -29,7 +29,7 @@ import net.minecraft.util.math.vector.Quaternion;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
-	public ClientProxy() {
+	public ClientProxy(Object obj) {
         MinecraftForge.EVENT_BUS.register(new TitanBossBarGui(Minecraft.getInstance()));
 	}
 	
