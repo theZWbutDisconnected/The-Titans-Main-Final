@@ -18,7 +18,7 @@ apply plugin: 'org.spongepowered.mixin'
 
 version = '0.495'
 group = 'net.zerwhit' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = '[Indev6.2]The_Titans-1.16.5-version'
+archivesBaseName = '[Indev7]The_Titans-1.16.5-version'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(16) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
