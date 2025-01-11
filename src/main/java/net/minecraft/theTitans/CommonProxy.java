@@ -29,10 +29,26 @@ import net.minecraft.util.math.vector.Quaternion;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraft.theTitans.world.WorldOreGeneration;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraft.entity.titan.EntityTitanSpirit;
+import net.minecraft.entity.titan.EntitySlimeTitan;
+import net.minecraft.entity.titan.EntityZombieTitan;
+import net.minecraft.entity.titan.EntitySkeletonTitan;
+import net.minecraft.entity.titan.EntityGhastTitan;
+import net.minecraft.entity.titan.EntityIronGolemTitan;
+import net.minecraft.entity.titan.EntityWitherzilla;
+import net.minecraft.entity.titanminion.EntityGiantZombieBetter;
+import net.minecraft.entity.titanminion.EntityZombieMinion;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod.EventBusSubscriber(modid = TheTitans.modid, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class CommonProxy
 {
+	public CommonProxy() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::biomeGenerate);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
+	}
+	
     @SubscribeEvent
     public static void onSetup(FMLClientSetupEvent event) {
 		new ClientProxy().renderEventHandler(event);
@@ -43,14 +59,24 @@ public class CommonProxy
 		new ClientProxy().bakedModel(event);
     }
 	
-    @SubscribeEvent
-    public static void onBiomeGenerate(BiomeLoadingEvent event) {
-		new CommonProxy().biomeGenerate(event);
-	}
-	
     public void renderEventHandler(FMLClientSetupEvent event) {}
+	
     public void bakedModel(ModelBakeEvent event) {}
+	
 	public void biomeGenerate(BiomeLoadingEvent event) {
 		new WorldOreGeneration(event).biomeGenerate();
 	}
+	
+    public void attributeRegistry(EntityAttributeCreationEvent event) {
+        event.put(RenderTheTitans.titanSpirit, EntityTitanSpirit.applyEntityAttributes().build());
+        event.put(RenderTheTitans.slimeTitan, EntitySlimeTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.zombieTitan, EntityZombieTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.skeletonTitan, EntitySkeletonTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.witherSkeletonTitan, EntitySkeletonTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.ghastTitan, EntityGhastTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.ironGolemTitan, EntityIronGolemTitan.applyEntityAttributes().build());
+        event.put(RenderTheTitans.witherzilla, EntityWitherzilla.applyEntityAttributes().build());
+        event.put(RenderTheTitans.giantZombie, EntityGiantZombieBetter.applyEntityAttributes().build());
+        event.put(RenderTheTitans.zombieMinion, EntityZombieMinion.applyEntityAttributes().build());
+    }
 }

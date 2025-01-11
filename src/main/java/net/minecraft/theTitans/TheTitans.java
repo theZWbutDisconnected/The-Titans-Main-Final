@@ -56,7 +56,7 @@ public class TheTitans {
         registry.postInit();
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new TitanBossBarGui(Minecraft.getInstance()));
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
+		new CommonProxy();
         Attributes.MAX_HEALTH = RenderTheTitans.MAX_HEALTH;
         Attributes.ATTACK_DAMAGE = RenderTheTitans.ATTACK_DAMAGE;
     }
@@ -75,18 +75,5 @@ public class TheTitans {
             throw message;
         } catch (Throwable ignored) {
         }
-    }
-
-    public void attributeRegistry(EntityAttributeCreationEvent event) {
-        event.put(RenderTheTitans.titanSpirit, EntityTitanSpirit.applyEntityAttributes().build());
-        event.put(RenderTheTitans.slimeTitan, EntitySlimeTitan.applyEntityAttributes().build());
-        event.put(RenderTheTitans.zombieTitan, EntityZombieTitan.applyEntityAttributes().build());
-        event.put(RenderTheTitans.skeletonTitan, EntitySkeletonTitan.applyEntityAttributes().build());
-        event.put(RenderTheTitans.witherSkeletonTitan, EntitySkeletonTitan.applyEntityAttributes().build());
-        event.put(RenderTheTitans.ghastTitan, EntityGhastTitan.applyEntityAttributes().build());
-        event.put(RenderTheTitans.ironGolemTitan, EntityIronGolemTitan.applyEntityAttributes().build());
-        event.put(RenderTheTitans.witherzilla, EntityWitherzilla.applyEntityAttributes().build());
-        event.put(RenderTheTitans.giantZombie, EntityGiantZombieBetter.applyEntityAttributes().build());
-        event.put(RenderTheTitans.zombieMinion, EntityZombieMinion.applyEntityAttributes().build());
     }
 }
