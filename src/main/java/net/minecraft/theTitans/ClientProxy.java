@@ -10,6 +10,7 @@ import net.minecraft.theTitans.render.*;
 import net.minecraft.theTitans.render.minions.RenderZombieMinion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
