@@ -49,7 +49,7 @@ public class CommonProxy
 	
 	public CommonProxy() {
 		client = new ClientProxy();
-        MinecraftForge.EVENT_BUS.register(this::biomeGenerate);
+        MinecraftForge.EVENT_BUS.register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
 	}
 	
@@ -61,6 +61,11 @@ public class CommonProxy
     @SubscribeEvent
     public static void onModelBaked(ModelBakeEvent event) {
 		client.bakedModel(event);
+    }
+
+    @SubscribeEvent
+    public void onBiomeLoading(BiomeLoadingEvent event) {
+		client.biomeGenerate(event);
     }
 	
     public void renderEventHandler(FMLClientSetupEvent event) {}
