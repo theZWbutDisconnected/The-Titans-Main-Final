@@ -15,12 +15,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class WorldOreGeneration
 {
-	public BiomeLoadingEvent event;
-	public WorldOreGeneration() {}
+	private static BiomeLoadingEvent event;
+	public WorldOreGeneration(BiomeLoadingEvent e) {
+		event = e;
+	}
 	
-	@SubscribeEvent
-	public void biomeGenerate(BiomeLoadingEvent e) {
-		this.event = e;
+	public void biomeGenerate() {
 		this.generateOre(TitanBlocks.harcadium_ore, 3, 0, 32);
 	}
 	

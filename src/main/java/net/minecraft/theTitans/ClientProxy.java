@@ -11,7 +11,6 @@ import net.minecraft.theTitans.render.minions.RenderZombieMinion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -28,10 +27,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.math.vector.Quaternion;
 
-@Mod.EventBusSubscriber(modid = TheTitans.modid, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class ClientProxy {
-    @SubscribeEvent
-    public static void renderEventHandler(FMLClientSetupEvent event) {
+public class ClientProxy extends CommonProxy {
+	
+    public void renderEventHandler(FMLClientSetupEvent event) {
 		EntityRendererManager manager = Minecraft.getInstance().getEntityRenderDispatcher();
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.growthSerum, (m) -> new SpriteRenderer<>(m, Minecraft.getInstance().getItemRenderer()));
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.titanFireball, RenderTitanFireball::new);
@@ -50,8 +48,7 @@ public class ClientProxy {
         RenderingRegistry.registerEntityRenderingHandler(RenderTheTitans.zombieMinion, RenderZombieMinion::new);
     }
 
-    @SubscribeEvent
-    public static void onModelBaked(ModelBakeEvent event) {
+    public void bakedModel(ModelBakeEvent event) {
         Label_UltimaBlade:
         {
             Map<ResourceLocation, IBakedModel> modelRegistry = event.getModelRegistry();
