@@ -45,10 +45,12 @@ import net.minecraftforge.common.MinecraftForge;
 @Mod.EventBusSubscriber(modid = TheTitans.modid, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class CommonProxy
 {
+	public static CommonProxy instance;
 	public static ClientProxy client;
 	
 	public CommonProxy() {
 		if (!(this instanceof ClientProxy)) {
+			instance = this;
 		    client = new ClientProxy();
             MinecraftForge.EVENT_BUS.register(this);
             FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
@@ -67,7 +69,7 @@ public class CommonProxy
 
     @SubscribeEvent
     public void onBiomeLoading(BiomeLoadingEvent event) {
-		client.biomeGenerate(event);
+		instance.biomeGenerate(event);
     }
 	
     public void renderEventHandler(FMLClientSetupEvent event) {}
