@@ -37,11 +37,11 @@ public class WorldOreGeneration
 		this.generateOre(TitanBlocks.nether_gold_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 6, 0, 512);
 		this.generateOre(TitanBlocks.nether_diamond_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 6, 0, 512);
 		this.generateOre(TitanBlocks.harcadium_ore, 3, 0, 12);
-		this.generateOre(TitanBlocks.harcadium_ore_end_stone, TitanOreFilterBlock.END_STONE, 3, 0, 512);
-		this.generateOre(TitanBlocks.harcadium_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 3, 0, 512);
+		this.generateOre(TitanBlocks.harcadium_ore_end_stone, TitanOreFilterBlock.END_STONE, 5, 0, 512);
+		this.generateOre(TitanBlocks.harcadium_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 4, 0, 512);
 		this.generateOre(TitanBlocks.void_ore, 1, 0, 6);
-		this.generateOre(TitanBlocks.void_ore_end_stone, TitanOreFilterBlock.END_STONE, 1, 0, 512);
-		this.generateOre(TitanBlocks.void_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 1, 0, 512);
+		this.generateOre(TitanBlocks.void_ore_end_stone, TitanOreFilterBlock.END_STONE, 3, 0, 512);
+		this.generateOre(TitanBlocks.void_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 2, 0, 512);
 		this.generateOre(TitanBlocks.adamantium_ore, TitanOreFilterBlock.OBSIDIAN, 1, 0, 512);
 	}
 	
