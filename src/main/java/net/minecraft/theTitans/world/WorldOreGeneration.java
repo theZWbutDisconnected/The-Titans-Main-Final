@@ -11,7 +11,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class WorldOreGeneration
 {
