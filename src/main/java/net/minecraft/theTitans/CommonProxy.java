@@ -40,23 +40,27 @@ import net.minecraft.entity.titan.EntityWitherzilla;
 import net.minecraft.entity.titanminion.EntityGiantZombieBetter;
 import net.minecraft.entity.titanminion.EntityZombieMinion;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod.EventBusSubscriber(modid = TheTitans.modid, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class CommonProxy
 {
+	public static ClientProxy client;
+	
 	public CommonProxy() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::biomeGenerate);
+		client = new ClientProxy();
+        MinecraftForge.EVENT_BUS.register(this::biomeGenerate);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::attributeRegistry);
 	}
 	
     @SubscribeEvent
     public static void onSetup(FMLClientSetupEvent event) {
-		new ClientProxy().renderEventHandler(event);
+		client.renderEventHandler(event);
 	}
 	
     @SubscribeEvent
     public static void onModelBaked(ModelBakeEvent event) {
-		new ClientProxy().bakedModel(event);
+		client.bakedModel(event);
     }
 	
     public void renderEventHandler(FMLClientSetupEvent event) {}

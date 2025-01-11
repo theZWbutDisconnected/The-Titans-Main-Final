@@ -26,8 +26,12 @@ import net.minecraft.util.math.vector.Vector4f;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.math.vector.Quaternion;
+import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
+	public ClientProxy() {
+        MinecraftForge.EVENT_BUS.register(new TitanBossBarGui(Minecraft.getInstance()));
+	}
 	
     public void renderEventHandler(FMLClientSetupEvent event) {
 		EntityRendererManager manager = Minecraft.getInstance().getEntityRenderDispatcher();

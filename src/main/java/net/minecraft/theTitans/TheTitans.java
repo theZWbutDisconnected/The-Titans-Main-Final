@@ -54,8 +54,6 @@ public class TheTitans {
         registry.register(new TitanBlocks());
         registry.register(new TitanSounds());
         registry.postInit();
-        MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new TitanBossBarGui(Minecraft.getInstance()));
 		new CommonProxy();
         Attributes.MAX_HEALTH = RenderTheTitans.MAX_HEALTH;
         Attributes.ATTACK_DAMAGE = RenderTheTitans.ATTACK_DAMAGE;
