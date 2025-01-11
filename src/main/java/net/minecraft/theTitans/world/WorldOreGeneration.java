@@ -11,13 +11,15 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class WorldOreGeneration
 {
 	public BiomeLoadingEvent event;
 	public WorldOreGeneration() {}
 	
-	public final void biomeGenerate(final BiomeLoadingEvent e) {
+	@SubscribeEvent
+	public void biomeGenerate(BiomeLoadingEvent e) {
 		this.event = e;
 		this.generateOre(TitanBlocks.harcadium_ore, 3, 0, 32);
 	}
