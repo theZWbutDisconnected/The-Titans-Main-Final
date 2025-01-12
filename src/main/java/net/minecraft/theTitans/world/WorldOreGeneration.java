@@ -15,6 +15,7 @@ import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.OreFeature;
+import net.minecraft.world.biome.Biome;
 
 public class WorldOreGeneration
 {
@@ -24,24 +25,51 @@ public class WorldOreGeneration
 	}
 	
 	public void biomeGenerate() {
-		this.generateOre(TitanBlocks.copper_ore, 8, 0, 256);
-		this.generateOre(TitanBlocks.tin_ore, 8, 0, 12);
-		this.generateOre(TitanBlocks.chromium_ore, 7, 0, 12);
-		this.generateOre(TitanBlocks.magnesium_ore, 7, 0, 12);
-		this.generateOre(TitanBlocks.lead_ore, 6, 0, 12);
-		this.generateOre(TitanBlocks.silver_ore, 6, 0, 12);
-		this.generateOre(TitanBlocks.platinum_ore, 5, 0, 12);
-		this.generateOre(TitanBlocks.nether_coal_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 11, 0, 512);
-		this.generateOre(TitanBlocks.nether_stone_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 11, 0, 512);
-		this.generateOre(TitanBlocks.nether_gold_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 6, 0, 512);
-		this.generateOre(TitanBlocks.nether_diamond_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 6, 0, 512);
-		this.generateOre(TitanBlocks.harcadium_ore, 5, 0, 12);
-		this.generateOre(TitanBlocks.harcadium_ore_end_stone, TitanOreFilterBlock.END_STONE, 20, 0, 128);
-		this.generateOre(TitanBlocks.harcadium_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 20, 0, 128);
-		this.generateOre(TitanBlocks.void_ore, 2, 0, 6);
-		this.generateOre(TitanBlocks.void_ore_end_stone, TitanOreFilterBlock.END_STONE, 15, 0, 128);
-		this.generateOre(TitanBlocks.void_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 15, 0, 128);
-		this.generateOre(TitanBlocks.adamantium_ore, TitanOreFilterBlock.OBSIDIAN, 1, 0, 128);
+		if (event.getCategory().getName() == "nether") {
+			this.generateOre(TitanBlocks.nether_coal_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 24, 20, 256);
+			this.generateOre(TitanBlocks.nether_stone_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 16, 20, 256);
+			this.generateOre(TitanBlocks.nether_gold_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 16, 2, 256);
+			this.generateOre(TitanBlocks.nether_diamond_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 7, 1, 256);
+		} else if (event.getCategory().getName() == "the_end") {
+			this.generateOre(TitanBlocks.harcadium_ore_end_stone, TitanOreFilterBlock.END_STONE, 16, 30, 128);
+			this.generateOre(TitanBlocks.void_ore_end_stone, TitanOreFilterBlock.END_STONE, 7, 10, 128);
+		} else if (event.getCategory().getName() == "the_void") {
+			this.generateOre(Blocks.OBSIDIAN, TitanOreFilterBlock.BEDROCK, 32, 20, 128);
+		} else if (event.getCategory().getName() == "nowhere") {
+			this.generateOre(TitanBlocks.harcadium_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 20, 60, 256);
+			this.generateOre(TitanBlocks.void_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 15, 20, 256);
+			this.generateOre(Blocks.COAL_ORE, TitanOreFilterBlock.OBSIDIAN, 16, 1, 64);
+			this.generateOre(Blocks.IRON_ORE, TitanOreFilterBlock.OBSIDIAN, 8, 1, 64);
+			this.generateOre(Blocks.GOLD_ORE, TitanOreFilterBlock.OBSIDIAN, 8, 1, 64);
+			this.generateOre(Blocks.DIAMOND_ORE, TitanOreFilterBlock.OBSIDIAN, 7, 1, 64);
+			this.generateOre(Blocks.REDSTONE_ORE, TitanOreFilterBlock.OBSIDIAN, 7, 1, 64);
+			this.generateOre(Blocks.LAPIS_ORE, TitanOreFilterBlock.OBSIDIAN, 6, 1, 64);
+			this.generateOre(TitanBlocks.adamantium_ore, TitanOreFilterBlock.OBSIDIAN, 1, 1, 128);
+		} else {
+			this.generateOre(TitanBlocks.void_ore, 2, 1, 8);
+			this.generateOre(TitanBlocks.harcadium_ore, 4, 1, 12);
+			this.generateOre(TitanBlocks.copper_ore, 16, 0, 128);
+			this.generateOre(TitanBlocks.tin_ore, 16, 0, 128);
+			this.generateOre(TitanBlocks.chromium_ore, 9, 0, 48);
+			this.generateOre(TitanBlocks.magnesium_ore, 9, 0, 48);
+			this.generateOre(TitanBlocks.lead_ore, 9, 0, 48);
+			this.generateOre(TitanBlocks.silver_ore, 8, 0, 32);
+			this.generateOre(TitanBlocks.platinum_ore, 7, 0, 28);
+			this.generateOre(Blocks.COAL_BLOCK, 16, 8, 128);
+			this.generateOre(Blocks.IRON_BLOCK, 8, 6, 64);
+			this.generateOre(Blocks.GOLD_BLOCK, 8, 4, 32);
+			this.generateOre(Blocks.DIAMOND_BLOCK, 7, 6, 16);
+			this.generateOre(Blocks.EMERALD_BLOCK, 7, 6, 16);
+			this.generateOre(Blocks.REDSTONE_BLOCK, 7, 4, 32);
+			this.generateOre(Blocks.LAPIS_BLOCK, 6, 3, 16);
+			this.generateOre(Blocks.COAL_ORE, 32, 8, 128);
+			this.generateOre(Blocks.IRON_ORE, 24, 6, 64);
+			this.generateOre(Blocks.GOLD_ORE, 24, 4, 32);
+			this.generateOre(Blocks.DIAMOND_ORE, 18, 6, 16);
+			this.generateOre(Blocks.EMERALD_ORE, 18, 6, 16);
+			this.generateOre(Blocks.REDSTONE_ORE, 18, 4, 32);
+			this.generateOre(Blocks.LAPIS_ORE, 16, 3, 16);
+		}
 	}
 	
 	public void generateOre(Block block, RuleTest filter, int size, int min, int max) {
@@ -62,5 +90,6 @@ public class WorldOreGeneration
 	public static final class TitanOreFilterBlock {
 		public static final RuleTest END_STONE = new BlockMatchRuleTest(Blocks.END_STONE);
 		public static final RuleTest OBSIDIAN = new BlockMatchRuleTest(Blocks.OBSIDIAN);
+		public static final RuleTest BEDROCK = new BlockMatchRuleTest(Blocks.BEDROCK);
 	}
 }

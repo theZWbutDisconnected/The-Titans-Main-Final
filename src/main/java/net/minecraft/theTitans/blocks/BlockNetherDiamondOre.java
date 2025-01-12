@@ -35,7 +35,7 @@ public class BlockNetherDiamondOre extends OreBlock {
     @Override
     public List<ItemStack> getDrops(BlockState p_220076_1_, LootContext.Builder p_220076_2_) {
         List<ItemStack> stack = new ArrayList<>();
-        stack.add(new ItemStack(Items.COAL));
+        stack.add(new ItemStack(Items.DIAMOND));
         return stack;
     }
 }
