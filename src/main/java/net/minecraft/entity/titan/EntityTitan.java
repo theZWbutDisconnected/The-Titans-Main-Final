@@ -426,11 +426,12 @@ public abstract class EntityTitan
                 if (this.level.getDifficulty() == Difficulty.PEACEFUL) {
                     this.level.getServer().setDifficulty(Difficulty.EASY, false);
                 }
-                if (!p_70624_1_.hurt(new DamageSource("other").bypassArmor().bypassMagic().bypassInvul(), 1.0f)) {
+				// WHY THIS ANTICHEATING CRASHED
+                /* if (!p_70624_1_.hurt(new DamageSource("other").bypassArmor().bypassMagic().bypassInvul(), 1.0f)) {
                     ((PlayerEntity) p_70624_1_).inventory.dropAll();
                     p_70624_1_.setHealth(0.0f);
                     ((ServerPlayerEntity)p_70624_1_).connection.disconnect(new StringTextComponent(this.getName().getString() + " has kicked you for cheating."));
-                }
+                }*/
             }
         } else if (p_70624_1_ instanceof EntityTitan && (this.level.dimension().getRegistryName() == new ResourceLocation(TheTitans.modid, "provider_void") || ((EntityTitan) p_70624_1_).getInvulTime() > 0 || ((EntityTitan) p_70624_1_).getWaiting() || ((EntityTitan) p_70624_1_).animID == 13) && !(p_70624_1_ instanceof EntityWitherzilla)) {
             super.setTarget(null);
