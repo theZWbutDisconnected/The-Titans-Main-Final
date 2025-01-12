@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import net.minecraft.entity.item.ExperienceOrbEntity;
+import net.minecraft.entity.item.ItemEntity;
 
 public class BlockVoidOre extends OreBlock {
     public static final SoundType soundTypeVoid;
@@ -61,17 +63,22 @@ public class BlockVoidOre extends OreBlock {
 
     @Override
     public boolean collisionExtendsVertically(BlockState state, IBlockReader world, BlockPos pos, Entity collidingEntity) {
-        collidingEntity.hurt(DamageSource.OUT_OF_WORLD, 4.0f);
-        collidingEntity.setDeltaMovement(collidingEntity.getDeltaMovement().x * 0.2, collidingEntity.getDeltaMovement().y, collidingEntity.getDeltaMovement().z * 0.2);
-        if (collidingEntity instanceof PlayerEntity) {
-            ((PlayerEntity) collidingEntity).getFoodData().addExhaustion(0.2f);
-        }
-        if (collidingEntity instanceof LivingEntity && ((LivingEntity) collidingEntity).getRandom().nextInt(10) == 0) {
-            collidingEntity.setRemainingFireTicks(40);
-        }
-        if (collidingEntity instanceof LivingEntity && ((LivingEntity) collidingEntity).getRandom().nextInt(60) == 0) {
-            ((LivingEntity) collidingEntity).addEffect(new EffectInstance(Effects.WITHER, 160, 1));
-        }
+		if (!(
+		collidingEntity instanceof ExperienceOrbEntity || 
+		(collidingEntity instanceof ItemEntity && ((ItemEntity)collidingEntity).getItem().getItem() == TitanItems.voidItem)
+		)) {
+            collidingEntity.hurt(DamageSource.OUT_OF_WORLD, 4.0f);
+            collidingEntity.setDeltaMovement(collidingEntity.getDeltaMovement().x * 0.2, collidingEntity.getDeltaMovement().y, collidingEntity.getDeltaMovement().z * 0.2);
+            if (collidingEntity instanceof PlayerEntity) {
+               ((PlayerEntity) collidingEntity).getFoodData().addExhaustion(0.2f);
+            }
+            if (collidingEntity instanceof LivingEntity && ((LivingEntity) collidingEntity).getRandom().nextInt(10) == 0) {
+                collidingEntity.setRemainingFireTicks(40);
+            }
+            if (collidingEntity instanceof LivingEntity && ((LivingEntity) collidingEntity).getRandom().nextInt(60) == 0) {
+                ((LivingEntity) collidingEntity).addEffect(new EffectInstance(Effects.WITHER, 160, 1));
+            }
+		}
         return super.collisionExtendsVertically(state, world, pos, collidingEntity);
     }
 
