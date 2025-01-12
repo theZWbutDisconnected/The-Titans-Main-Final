@@ -16,6 +16,27 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Supplier;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraft.enchantment.Enchantment;
+import java.util.Collection;
+import java.util.function.Consumer;
+import net.minecraft.entity.monster.EndermanEntity;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorldReader;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.world.World;
+import com.google.common.collect.Multimap;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.block.BlockState;
 
 public class TitanItems {
     @EventRegistry(identifier = "copper_ore")

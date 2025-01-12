@@ -79,8 +79,8 @@ public class BlockVoidOre extends OreBlock {
     public void playerDestroy(World p_180657_1_, PlayerEntity p_180657_2_, BlockPos p_180657_3_, BlockState p_180657_4_, @Nullable TileEntity p_180657_5_, ItemStack p_180657_6_) {
         p_180657_2_.awardStat(Stats.BLOCK_MINED.get(this));
         p_180657_2_.causeFoodExhaustion(0.005F);
-        dropResources(p_180657_4_, p_180657_1_, p_180657_3_, p_180657_5_, p_180657_2_, p_180657_6_);
         p_180657_1_.explode(null, p_180657_2_.getX(), p_180657_2_.getY(), p_180657_2_.getZ(), 1.0f, Explosion.Mode.BREAK);
+        dropResources(p_180657_4_, p_180657_1_, p_180657_3_, p_180657_5_, p_180657_2_, p_180657_6_);
     }
 
     @Override
