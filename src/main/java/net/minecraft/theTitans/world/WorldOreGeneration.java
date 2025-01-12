@@ -20,7 +20,6 @@ public class WorldOreGeneration
 {
 	private static BiomeLoadingEvent event;
 	public WorldOreGeneration(BiomeLoadingEvent e) {
-
 		event = e;
 	}
 	
@@ -37,12 +36,12 @@ public class WorldOreGeneration
 		this.generateOre(TitanBlocks.nether_gold_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 6, 0, 512);
 		this.generateOre(TitanBlocks.nether_diamond_ore, OreFeatureConfig.FillerBlockType.NETHERRACK, 6, 0, 512);
 		this.generateOre(TitanBlocks.harcadium_ore, 5, 0, 12);
-		this.generateOre(TitanBlocks.harcadium_ore_end_stone, TitanOreFilterBlock.END_STONE, 10, 0, 512);
-		this.generateOre(TitanBlocks.harcadium_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 10, 0, 512);
+		this.generateOre(TitanBlocks.harcadium_ore_end_stone, TitanOreFilterBlock.END_STONE, 20, 0, 128);
+		this.generateOre(TitanBlocks.harcadium_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 20, 0, 128);
 		this.generateOre(TitanBlocks.void_ore, 2, 0, 6);
-		this.generateOre(TitanBlocks.void_ore_end_stone, TitanOreFilterBlock.END_STONE, 8, 0, 512);
-		this.generateOre(TitanBlocks.void_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 8, 0, 512);
-		this.generateOre(TitanBlocks.adamantium_ore, TitanOreFilterBlock.OBSIDIAN, 1, 0, 512);
+		this.generateOre(TitanBlocks.void_ore_end_stone, TitanOreFilterBlock.END_STONE, 15, 0, 128);
+		this.generateOre(TitanBlocks.void_ore_obsidian, TitanOreFilterBlock.OBSIDIAN, 15, 0, 128);
+		this.generateOre(TitanBlocks.adamantium_ore, TitanOreFilterBlock.OBSIDIAN, 1, 0, 128);
 	}
 	
 	public void generateOre(Block block, RuleTest filter, int size, int min, int max) {
