@@ -433,7 +433,7 @@ public abstract class EntityTitan
                     ((ServerPlayerEntity)p_70624_1_).connection.disconnect(new StringTextComponent(this.getName().getString() + " has kicked you for cheating."));
                 }*/
             }
-        } else if (p_70624_1_ instanceof EntityTitan && (this.level.dimension().getRegistryName() == new ResourceLocation(TheTitans.modid, "provider_void") || ((EntityTitan) p_70624_1_).getInvulTime() > 0 || ((EntityTitan) p_70624_1_).getWaiting() || ((EntityTitan) p_70624_1_).animID == 13) && !(p_70624_1_ instanceof EntityWitherzilla)) {
+        } else if (p_70624_1_ instanceof EntityTitan && (this.level.dimension() == TheTitans.voidLand || ((EntityTitan) p_70624_1_).getInvulTime() > 0 || ((EntityTitan) p_70624_1_).getWaiting() || ((EntityTitan) p_70624_1_).animID == 13) && !(p_70624_1_ instanceof EntityWitherzilla)) {
             super.setTarget(null);
         } else {
             super.setTarget(null);

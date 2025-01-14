@@ -769,7 +769,7 @@ public class EntityZombieTitan extends EntityTitan implements IAnimatedEntity, I
                 this.jumpAtEntity(this.getTarget());
             }
         }
-        if (!this.getWaiting() && this.animID != 13 && !(this.level.dimension().getRegistryName() == new ResourceLocation(TheTitans.modid, "provider_void"))) {
+        if (!this.getWaiting() && this.animID != 13 && !(this.level.dimension() == TheTitans.voidLand)) {
             if ((this.random.nextInt(this.getMinionSpawnRate()) == 0 || this.getInvulTime() > 1 || (this.animID == 11 && this.animTick > 80)) && this.getHealth() > 0.0f && !this.level.isClientSide && this.level.getDifficulty() != Difficulty.PEACEFUL) {
                 if (this.numSpecialMinions < this.getSpecialMinionCap() && this.random.nextInt(100) == 0) {
                     final EntityGiantZombieBetter entitychicken = new EntityGiantZombieBetter(this.level);

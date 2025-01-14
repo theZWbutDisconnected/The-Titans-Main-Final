@@ -256,7 +256,7 @@ public class EntityWitherzilla extends EntityTitan implements IRangedAttackMob {
     @Override
     protected void outOfWorld() {
         this.level.levelEvent(1013, new BlockPos((int) this.getX(), (int) this.getY(), (int) this.getZ()), 0);
-        this.teleportRandomly(this.level.dimension().getRegistryName() == new ResourceLocation(TheTitans.modid, "provider_void") || this.level.dimension().getRegistryName() == new ResourceLocation("the_end"));
+        this.teleportRandomly(this.level.dimension() == TheTitans.voidLand || this.level.dimension().getRegistryName() == new ResourceLocation("end"));
     }
 
     @Override

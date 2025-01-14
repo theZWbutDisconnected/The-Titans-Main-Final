@@ -21,6 +21,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.theTitans.world.WorldOreGeneration;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.world.World;
+import net.minecraft.util.registry.Registry;
 
 @Mod(TheTitans.modid)
 public class TheTitans {
@@ -33,7 +36,9 @@ public class TheTitans {
     protected static final String modname = "The Titans Mod";
     private static final Logger LOGGER = LogManager.getLogger();
     private static final RegistryHelper registry;
-
+	
+	public static final RegistryKey<World> voidLand = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("the_void"));
+	
     static {
         registry = new RegistryHelper();
         genericTitanWhiteTexture32x64 = new ResourceLocation("thetitans", "textures/entities/32x64_disintigration.png");
