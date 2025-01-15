@@ -16,6 +16,10 @@ import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.OreFeature;
 import net.minecraft.world.biome.Biome;
+import java.util.Random;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.server.ServerWorld;
 
 public class WorldOreGeneration
 {
@@ -73,12 +77,18 @@ public class WorldOreGeneration
 	}
 	
 	public void generateOre(Block block, RuleTest filter, int size, int min, int max) {
-		OreFeatureConfig conf = new OreFeatureConfig(filter, block.defaultBlockState(), size);
+		OreFeatureConfig conf = new OreFeatureConfig(filter, block.defaultBlockState(), (int)(size * 0.5));
 		ConfiguredPlacement<TopSolidRangeConfig> cpm = Placement.RANGE.configured(new TopSolidRangeConfig(min, min, max));
 		ConfiguredFeature<?,?> cf = oreFeature(block, conf, cpm, size);
 		event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, cf);
 	}
-	
+	/*
+	public void generateOre(Block block, RuleTest filter, int size, int min, int max) {
+		Random rand = new Random();
+		rand.setSeed(((ServerWorld)(Minecraft.getInstance().level.getServer().getAllLevels()[0])).getSeed());
+		this generateOre(block, filter, size, min, max, rand.nextInt(16));
+	}
+	*/
 	public void generateOre(Block block, int size, int min, int max) {
 		this.generateOre(block, OreFeatureConfig.FillerBlockType.NATURAL_STONE, size, min, max);
 	}
