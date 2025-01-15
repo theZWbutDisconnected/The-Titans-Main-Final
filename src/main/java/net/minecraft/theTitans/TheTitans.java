@@ -38,7 +38,7 @@ public class TheTitans {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final RegistryHelper registry;
 	
-	public static final RegistryKey<Dimension> voidLand = RegistryKey.create(Registry.LEVEL_STEM_REGISTRY, new ResourceLocation(TheTitans.modid, "the_void"));
+	public static final RegistryKey<World> voidLand = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(TheTitans.modid, "the_void"));
 	
     static {
         registry = new RegistryHelper();
